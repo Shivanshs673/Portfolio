@@ -16,7 +16,7 @@ export function FooterSection() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="min-w-0">
           <p className="text-xl font-semibold text-white sm:text-2xl">Shivansh Shukla</p>
-          <p className="mt-2 text-sm text-slate-400">Android & Software Developer · B.Tech CSE (Completed)</p>
+          <p className="mt-2 text-sm text-slate-400">Android & Software Developer · B.Tech CSE, JUET</p>
           <p className="mt-1 text-sm text-slate-500">{contactInfo.location}</p>
           <a
             href={`mailto:${contactInfo.email}`}

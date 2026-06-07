@@ -32,11 +32,11 @@ export const education = {
   location: "Guna, MP",
   degree: "Bachelor of Technology in Computer Science Engineering (B.Tech)",
   period: "2022 – 2026",
-  graduation: "Completed: June 2026",
+  graduation: "June 2026",
 };
 
 export const aboutPoints = [
-  "B.Tech CSE (Completed)",
+  "B.Tech CSE at JUET, Guna",
   "Native Android Developer",
   "MVVM + Jetpack Compose",
   "Supabase & Firebase",
@@ -176,6 +176,6 @@ export const socialLinks = [
 
 export const quickFacts = [
   { label: "Hometown", value: "Ujjain, MP, India" },
-  { label: "Education", value: "B.Tech CSE, JUET (Completed)" },
+  { label: "Education", value: "B.Tech CSE, JUET" },
   { label: "Availability", value: "Open to SDE & Android roles" },
 ];
