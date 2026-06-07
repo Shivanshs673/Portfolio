@@ -18,6 +18,8 @@
 html {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -146,8 +148,4 @@ body {
 
 .scrollbar-none::-webkit-scrollbar {
   display: none;
-}
-
-html {
-  scroll-behavior: smooth;
 }

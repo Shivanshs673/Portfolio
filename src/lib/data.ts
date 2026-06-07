@@ -1,177 +1,181 @@
+export const contactInfo = {
+  email: "shivanshs673@gmail.com",
+  phone: "+91-7987190176",
+  linkedin: "https://www.linkedin.com/in/shivansh-shukla-2a9552257/",
+  github: "https://github.com/shivanshs673",
+  leetcode: "https://leetcode.com/u/Shivanshs673",
+  location: "Ujjain, MP, India",
+};
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
   { label: "Experience", href: "#experience" },
-  { label: "Coding Profiles", href: "#coding-profiles" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const heroHighlights = [
   "Android Development",
-  "Software Engineering",
   "Jetpack Compose",
-  "Scalable Systems",
+  "Supabase & Firebase",
+  "MVVM Architecture",
 ];
+
+export const professionalSummary =
+  "Results-driven B.Tech graduate specializing in native Android development and software engineering. Experienced in building scalable mobile applications using Kotlin, Jetpack Compose, Supabase, and MVVM architecture. Strong foundation in Data Structures and Algorithms, with proven ability to architect complex systems, integrate RESTful APIs, and deliver user-centric solutions in Agile environments.";
+
+export const education = {
+  school: "Jaypee University of Engineering & Technology",
+  location: "Guna, MP",
+  degree: "Bachelor of Technology in Computer Science Engineering (B.Tech)",
+  period: "2022 – 2026",
+  graduation: "Completed: June 2026",
+};
 
 export const aboutPoints = [
-  "Final Year Computer Science Student",
-  "Android Developer",
-  "Kotlin Enthusiast",
-  "Problem Solver",
-];
-
-export const aboutStats = [
-  { label: "Projects Completed", value: "12+" },
-  { label: "LeetCode Problems Solved", value: "250+" },
-  { label: "GitHub Repositories", value: "18" },
-  { label: "Technologies Learned", value: "20+" },
+  "B.Tech CSE (Completed)",
+  "Native Android Developer",
+  "MVVM + Jetpack Compose",
+  "Supabase & Firebase",
 ];
 
 export const skillGroups = [
   {
-    title: "Android Development",
-    description: "Modern mobile app stack with polished UIs and maintainable architecture.",
-    skills: [
-      { name: "Kotlin", level: 96 },
-      { name: "Jetpack Compose", level: 92 },
-      { name: "Android SDK", level: 90 },
-      { name: "MVVM", level: 88 },
-      { name: "Room", level: 82 },
-      { name: "Retrofit", level: 85 },
-      { name: "Firebase", level: 84 },
-    ],
+    title: "Mobile Development",
+    skills: ["Jetpack Compose", "Android SDK", "Material Design", "MVVM", "Hilt", "Room", "Retrofit"],
+  },
+  {
+    title: "Frameworks & Tools",
+    skills: ["Supabase", "Firebase", "Git", "GitHub", "Coroutines", "StateFlow", "Android Studio", "Jira"],
   },
   {
     title: "Programming Languages",
-    description: "Language fluency for app logic, tooling, and expressive problem solving.",
-    skills: [
-      { name: "Kotlin", level: 96 },
-      { name: "Java", level: 88 },
-      { name: "C++", level: 86 },
-      { name: "TypeScript", level: 84 },
-    ],
+    skills: ["Kotlin", "C", "C++", "SQL"],
   },
   {
-    title: "Backend & Database",
-    description: "Fast prototyping, cloud-backed workflows, and reliable persistence.",
-    skills: [
-      { name: "Firebase", level: 88 },
-      { name: "Supabase", level: 78 },
-      { name: "SQL", level: 82 },
-    ],
+    title: "Databases",
+    skills: ["Room", "Supabase", "Firebase Realtime DB", "Cloud Firestore", "SQL"],
   },
   {
-    title: "Tools",
-    description: "The everyday stack used to ship, ship better, and ship faster.",
-    skills: [
-      { name: "Git", level: 92 },
-      { name: "GitHub", level: 94 },
-      { name: "Android Studio", level: 95 },
-      { name: "Postman", level: 84 },
-      { name: "Figma", level: 76 },
-    ],
-  },
-  {
-    title: "Core CS",
-    description: "Foundations that keep code fast, correct, and explainable.",
-    skills: [
-      { name: "DSA", level: 90 },
-      { name: "OS", level: 84 },
-      { name: "DBMS", level: 83 },
-      { name: "CN", level: 82 },
-      { name: "OOP", level: 89 },
-    ],
+    title: "Core Concepts",
+    skills: ["Data Structures & Algorithms", "REST APIs", "Clean Architecture", "Agile/Scrum", "Problem Solving"],
   },
 ];
 
 export const projects = [
   {
+    name: "AlgoViz+",
+    subtitle: "Competitive Learning Platform",
+    period: "Feb 2026 – Present",
+    summary:
+      "Android app for learning algorithms with real-time, collaborative study-room features — Supabase auth, chat, and modular Clean Architecture.",
+    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Hilt", "Supabase", "Firebase"],
+    features: [
+      "25+ algorithms with step-by-step visualization and customizable inputs",
+      "Supabase-backed auth (email/password + Google) and realtime study rooms",
+      "Clean Architecture with Hilt, Coroutines, and Flow",
+      "Room, Retrofit, and Firebase Messaging integration",
+    ],
+    github: "https://github.com/Harry0786/ALGOVIZ",
+    accent: "from-blue-400/35 to-cyan-500/20",
+  },
+  {
     name: "FinSetu",
-    summary: "Expense splitting and budgeting application designed for everyday financial clarity.",
-    tech: ["Kotlin", "Jetpack Compose", "Firebase"],
-    features: ["Expense Tracking", "Budget Planning", "Modern UI"],
-    category: "Android",
-    github: "https://github.com/shivanshs673",
-    live: "https://finsetu.example.com",
+    subtitle: "Expense Management System",
+    period: "Apr 2025 – May 2025",
+    summary:
+      "Real-time expense management app supporting 100+ users with secure authentication and automated expense splitting.",
+    tech: ["Kotlin", "Jetpack Compose", "Firebase", "Coroutines"],
+    features: [
+      "100+ user support with secure authentication",
+      "Automated group expense splitting",
+      "MVVM architecture with Jetpack Compose",
+      "Optimized data sync using Coroutines",
+    ],
+    github: "https://github.com/Shivanshs673/FinSetu",
     accent: "from-cyan-400/35 to-blue-500/20",
   },
   {
-    name: "MY JUET",
-    summary: "A college companion app for academic tracking and student productivity.",
-    tech: ["Kotlin", "Compose", "Web Scraping"],
-    features: ["Attendance Tracking", "CGPA/SGPA", "Exam Schedule", "Student Dashboard"],
-    category: "Android",
-    github: "https://github.com/shivanshs673",
-    live: "https://myjuet.example.com",
+    name: "ShoppingListApp",
+    subtitle: "Smart Shopping List",
+    period: "Personal Project",
+    summary:
+      "Feature-rich shopping list app with location-based suggestions, persistent storage, and a polished Compose UI.",
+    tech: ["Kotlin", "Jetpack Compose", "MVVM", "Retrofit", "Room", "Navigation"],
+    features: [
+      "Add, edit, delete, and mark items as purchased",
+      "Room Database for offline persistence",
+      "Retrofit for network requests and location-based features",
+      "Jetpack Navigation with lifecycle-aware ViewModels",
+    ],
+    github: "https://github.com/Shivanshs673/ShoppingListApp",
     accent: "from-violet-400/35 to-fuchsia-500/20",
   },
   {
-    name: "MemeLang",
-    summary: "A Hindi-inspired interpreted programming language built to make programming more approachable.",
-    tech: ["TypeScript", "Compiler Design", "Parsing"],
-    features: ["Hindi-inspired syntax", "Custom interpreter", "Language tooling"],
-    category: "Developer Tooling",
-    github: "https://github.com/shivanshs673",
-    live: "https://memelang.example.com",
-    accent: "from-amber-400/35 to-orange-500/20",
-  },
-  {
-    name: "Recipe App",
-    summary: "A polished recipe browser built for discovery, speed, and cooking inspiration.",
-    tech: ["Kotlin", "Retrofit", "MVVM"],
-    features: ["Search & filters", "Ingredient details", "Clean recipe flow"],
-    category: "Android",
-    github: "https://github.com/shivanshs673",
-    live: "https://recipe.example.com",
+    name: "GetLocationApp",
+    subtitle: "Location Services Demo",
+    period: "Personal Project",
+    summary:
+      "Android app that fetches and displays the user's current GPS location with seamless runtime permission handling.",
+    tech: ["Kotlin", "Jetpack Compose", "Fused Location Provider"],
+    features: [
+      "Real-time latitude and longitude display",
+      "Runtime location permission handling",
+      "Clean Compose UI built for learning and extension",
+      "Foundation for maps, geofencing, and location history",
+    ],
+    github: "https://github.com/Shivanshs673/GetLocationApp",
     accent: "from-emerald-400/35 to-teal-500/20",
   },
 ];
 
-export const achievements = [
-  "Qualified GATE Examination",
-  "Joint Secretary, Mozilla Club",
-  "Participated in Hackathons",
-  "Built MemeLang Programming Language",
-  "Android Development Projects",
-  "Open Source Contributions",
-];
-
 export const experiences = [
   {
-    company: "Mozilla Club",
-    role: "Joint Secretary",
-    period: "2024 - Present",
-    responsibilities: ["Event Management", "Technical Sessions", "Community Building"],
+    company: "JOHRISOFT",
+    role: "Software Development Intern",
+    location: "Kota, Rajasthan",
+    period: "May 2025 – Jul 2025",
+    responsibilities: [
+      "Developed and integrated 5+ RESTful APIs, improving backend data flow and reducing API response latency by approximately 20%",
+      "Collaborated in a 5-member Agile team using Git and Jira, delivering features on time",
+      "Refactored legacy modules into reusable components, reducing debugging time by approximately 25%",
+      "Gained hands-on experience with corporate workflows and industry-level engineering standards",
+    ],
   },
 ];
 
-export const codingProfiles = [
-  { name: "GitHub", href: "https://github.com/shivanshs673", label: "Code, commits, and open-source work." },
-  { name: "LeetCode", href: "https://leetcode.com/u/Shivanshs673", label: "Problem solving and algorithm practice." },
-  { name: "LinkedIn", href: "https://linkedin.com/in/shivansh-shukla-2a9552257", label: "Professional presence and network." },
+export const activities = [
+  {
+    org: "Mozilla Phoenix Club – JUET",
+    role: "Advisor",
+    period: "Aug 2025 – May 2026",
+    highlights: [
+      "Organized an Accenture Mock Test for 300+ students using a student-built website platform",
+      "Initiated Hacktoberfest 2024 in collaboration with Major League Hacking (MLH)",
+    ],
+  },
+  {
+    org: "TEDxJUET",
+    role: "Logistics Head",
+    period: "May 2025",
+    highlights: [
+      "Managed operations for 100+ participants and coordinated team schedules for the event held on 3 May 2025",
+      "Handled vendor communication, event setup, and post-event wrap-up with zero operational delays",
+    ],
+  },
 ];
 
-export const blogPosts = [
-  {
-    title: "Building Compose-first Android apps",
-    description: "Notes on state, structure, and fast iteration when shipping modern mobile products.",
-  },
-  {
-    title: "What I learned building a custom programming language",
-    description: "Parsing, lexing, and why tiny compiler projects sharpen engineering instincts.",
-  },
-  {
-    title: "From DSA to systems thinking",
-    description: "How algorithm practice connects to software design and production reliability.",
-  },
+export const socialLinks = [
+  { name: "GitHub", href: contactInfo.github, label: "Open-source projects and code" },
+  { name: "LeetCode", href: contactInfo.leetcode, label: "250+ problems solved" },
+  { name: "LinkedIn", href: contactInfo.linkedin, label: "Professional profile" },
 ];
 
 export const quickFacts = [
-  { label: "Location", value: "India" },
-  { label: "Focus", value: "Android + Frontend Systems" },
-  { label: "Availability", value: "Open to internships and full-time roles" },
+  { label: "Hometown", value: "Ujjain, MP, India" },
+  { label: "Education", value: "B.Tech CSE, JUET (Completed)" },
+  { label: "Availability", value: "Open to SDE & Android roles" },
 ];

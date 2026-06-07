@@ -4,20 +4,23 @@ import Link from "next/link";
 import { useState } from "react";
 import { Mail, PhoneCall, Send } from "lucide-react";
 
+import { socialLinks, contactInfo } from "@/lib/data";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+type FormStatus = { type: "success" | "error"; text: string } | null;
+
 export function ContactSection() {
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
+  const [status, setStatus] = useState<FormStatus>(null);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
-    setMessage(null);
+    setStatus(null);
 
     const formData = new FormData(event.currentTarget);
     const payload = Object.fromEntries(formData.entries());
@@ -29,73 +32,84 @@ export function ContactSection() {
         body: JSON.stringify(payload),
       });
 
+      const data = (await response.json()) as { error?: string; message?: string };
+
       if (!response.ok) {
-        throw new Error("Unable to send message");
+        setStatus({ type: "error", text: data.error ?? "Unable to send message. Please try again." });
+        return;
       }
 
       event.currentTarget.reset();
-      setMessage("Message sent. Shivansh will respond soon.");
+      setStatus({ type: "success", text: "Message sent! I'll get back to you soon." });
     } catch {
-      setMessage("Email service is not configured yet. Please use the email link below.");
+      setStatus({
+        type: "error",
+        text: `Something went wrong. Please email me directly at ${contactInfo.email}.`,
+      });
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <section id="contact" className="section-wrapper relative px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section id="contact" className="section-wrapper relative px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Contact"
-          title="A contact form that feels as polished as the portfolio itself."
-          description="The form posts to a server route ready for Resend deployment, with social links and contact details for quick recruiter follow-up."
+          title="Get in touch"
+          description="Have an opportunity, question, or collaboration in mind? Send a message and I'll respond as soon as I can."
         />
 
-        <div className="mt-12 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-          <Card className="glass p-6 md:p-8">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-[1.1fr_0.9fr] xl:grid-cols-[1.1fr_0.9fr]">
+          <Card className="glass p-5 sm:p-6 md:p-8">
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
-                <Input name="name" placeholder="Name" required />
-                <Input name="email" type="email" placeholder="Email" required />
+                <Input name="name" placeholder="Your name" required disabled={loading} />
+                <Input name="email" type="email" placeholder="Your email" required disabled={loading} />
               </div>
-              <Input name="subject" placeholder="Subject" required />
-              <Textarea name="message" placeholder="Message" required />
+              <Input name="subject" placeholder="Subject" required disabled={loading} />
+              <Textarea name="message" placeholder="Your message..." rows={5} required disabled={loading} />
 
-              <div className="flex flex-wrap items-center gap-3">
-                <Button type="submit" variant="accent" disabled={loading}>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Button type="submit" variant="accent" disabled={loading} className="w-full sm:w-auto">
                   <Send className="h-4 w-4" />
                   {loading ? "Sending..." : "Send Message"}
                 </Button>
-                {message ? <p className="text-sm text-emerald-300">{message}</p> : null}
+                {status ? (
+                  <p className={`text-sm ${status.type === "success" ? "text-emerald-300" : "text-red-300"}`}>{status.text}</p>
+                ) : null}
               </div>
             </form>
           </Card>
 
           <div className="space-y-6">
             <Card className="glass p-6 md:p-8">
-              <div className="space-y-4 text-sm text-slate-300">
-                <div className="flex items-center gap-3 text-white">
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Direct contact</p>
+              <div className="mt-4 space-y-4 text-sm">
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="flex items-center gap-3 text-white transition hover:text-cyan-200"
+                >
                   <Mail className="h-4 w-4 text-cyan-300" />
-                  shivanshs673@gmail.com
-                </div>
-                <div className="flex items-center gap-3 text-white">
+                  {contactInfo.email}
+                </a>
+                <a
+                  href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
+                  className="flex items-center gap-3 text-white transition hover:text-cyan-200"
+                >
                   <PhoneCall className="h-4 w-4 text-cyan-300" />
-                  7987190176
-                </div>
+                  {contactInfo.phone}
+                </a>
               </div>
             </Card>
 
             <Card className="glass p-6 md:p-8">
-              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Social Links</p>
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Social</p>
               <div className="mt-4 space-y-3">
-                {[
-                  { label: "GitHub", href: "https://github.com/shivanshs673" },
-                  { label: "LinkedIn", href: "https://linkedin.com/in/shivansh-shukla-2a9552257" },
-                  { label: "LeetCode", href: "https://leetcode.com/u/Shivanshs673" },
-                ].map((item) => (
-                  <Button key={item.label} asChild variant="glass" size="sm" className="justify-between px-4 py-3">
+                {socialLinks.map((item) => (
+                  <Button key={item.name} asChild variant="glass" size="sm" className="w-full justify-between px-4 py-3">
                     <Link href={item.href} target="_blank" rel="noreferrer">
-                      {item.label}
+                      {item.name}
                       <Send className="h-4 w-4" />
                     </Link>
                   </Button>

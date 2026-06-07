@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { Code2, FileText, Mail, Rocket } from "lucide-react";
 
-import { navLinks } from "@/lib/data";
+import { navLinks, contactInfo } from "@/lib/data";
 
 const quickActions = [
-  { label: "View GitHub", href: "https://github.com/shivanshs673", icon: Code2 },
+  { label: "View GitHub", href: contactInfo.github, icon: Code2 },
   { label: "Open Resume", href: "#resume", icon: FileText },
-  { label: "Email Shivansh", href: "mailto:shivanshs673@gmail.com", icon: Mail },
+  { label: "Email Shivansh", href: `mailto:${contactInfo.email}`, icon: Mail },
   { label: "Jump to Projects", href: "#projects", icon: Rocket },
 ];
 

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -16,11 +14,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivansh-shukla.vercel.app"),
   title: {
-    default: "Shivansh Shukla | Android Developer & Software Engineer",
+    default: "Shivansh Shukla | Android & Software Developer",
     template: "%s | Shivansh Shukla",
   },
   description:
-    "Premium portfolio for Shivansh Shukla, an Android Developer and Software Engineer focused on Kotlin, Jetpack Compose, and modern product engineering.",
+    "Portfolio of Shivansh Shukla — Android & Software Developer specializing in Kotlin, Jetpack Compose, MVVM, and REST API integration.",
   keywords: [
     "Shivansh Shukla",
     "Android Developer",
@@ -30,9 +28,9 @@ export const metadata: Metadata = {
     "Next.js Portfolio",
   ],
   openGraph: {
-    title: "Shivansh Shukla | Android Developer & Software Engineer",
+    title: "Shivansh Shukla | Android & Software Developer",
     description:
-      "A premium, animated portfolio highlighting Android, software engineering, and modern frontend craft.",
+      "Portfolio of Shivansh Shukla — Android developer building scalable apps with Kotlin, Jetpack Compose, and MVVM.",
     url: "https://shivansh-shukla.vercel.app",
     siteName: "Shivansh Shukla Portfolio",
     type: "website",
@@ -40,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shivansh Shukla | Android Developer & Software Engineer",
+    title: "Shivansh Shukla | Android & Software Developer",
     description:
-      "A premium, animated portfolio highlighting Android, software engineering, and modern frontend craft.",
+      "Portfolio of Shivansh Shukla — Android developer building scalable apps with Kotlin, Jetpack Compose, and MVVM.",
     images: ["/og-image.svg"],
   },
   robots: {
@@ -59,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} h-full scroll-smooth antialiased`}>
       <body className="min-h-full bg-slate-950 text-white">
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
       </body>
     </html>
   );
