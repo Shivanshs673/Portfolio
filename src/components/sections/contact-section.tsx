@@ -22,7 +22,8 @@ export function ContactSection() {
     setLoading(true);
     setStatus(null);
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
     try {
@@ -32,14 +33,19 @@ export function ContactSection() {
         body: JSON.stringify(payload),
       });
 
-      const data = (await response.json()) as { error?: string; message?: string };
+      let data: { error?: string; message?: string } = {};
+      try {
+        data = (await response.json()) as { error?: string; message?: string };
+      } catch {
+        throw new Error("Invalid server response");
+      }
 
       if (!response.ok) {
         setStatus({ type: "error", text: data.error ?? "Unable to send message. Please try again." });
         return;
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setStatus({ type: "success", text: "Message sent! I'll get back to you soon." });
     } catch {
       setStatus({
