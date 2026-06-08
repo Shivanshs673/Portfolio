@@ -15,11 +15,24 @@
   --font-display: var(--font-display);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 html {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -85,6 +98,15 @@ body {
   border: 1px solid var(--card-border);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
+}
+
+.motion-safe-focus {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motion-safe-focus:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
 }
 
 .noise {

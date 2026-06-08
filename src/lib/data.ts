@@ -73,6 +73,10 @@ export const projects = [
     summary:
       "Android app for learning algorithms with real-time, collaborative study-room features — Supabase auth, chat, and modular Clean Architecture.",
     tech: ["Kotlin", "Jetpack Compose", "MVVM", "Hilt", "Supabase", "Firebase"],
+    whyBuilt: "Visual learning makes complex algorithms much easier to grasp, and peer study groups keep developers motivated. I built AlgoViz+ to turn passive algorithm study into a social, interactive experience.",
+    keyChallenge: "Handling real-time collaborative state synchronization in study rooms using Supabase Realtime without causing UI lag during complex step-by-step algorithm animations on the canvas.",
+    impact: "Enables peers to step through algorithms together interactively in shared rooms, eliminating the need to screen-share or coordinate manually.",
+    learnings: "Deepened my skills in Clean Architecture layers, custom Jetpack Compose canvas drawing, performance profiling, and reactive state management with StateFlow.",
     features: [
       "25+ algorithms with step-by-step visualization and customizable inputs",
       "Supabase-backed auth (email/password + Google) and realtime study rooms",
@@ -89,6 +93,10 @@ export const projects = [
     summary:
       "Real-time expense management app supporting 100+ users with secure authentication and automated expense splitting.",
     tech: ["Kotlin", "Jetpack Compose", "Firebase", "Coroutines"],
+    whyBuilt: "I noticed that students in my hostel struggled to track shared expenses and settle group debts without tedious spreadsheets and awkward money discussions.",
+    keyChallenge: "Designing a reliable offline-first database cache that syncs automatically with Firebase Realtime Database and handles concurrent offline updates when campus Wi-Fi drops.",
+    impact: "Simplified cost-sharing for a test group of 100+ students, cutting calculation errors to zero and speeding up peer settlements.",
+    learnings: "Mastered persistent database relationships in Android, managed complex nested UI states in Jetpack Compose, and solved real-time synchronization conflicts.",
     features: [
       "100+ user support with secure authentication",
       "Automated group expense splitting",
@@ -105,6 +113,10 @@ export const projects = [
     summary:
       "Feature-rich shopping list app with location-based suggestions, persistent storage, and a polished Compose UI.",
     tech: ["Kotlin", "Jetpack Compose", "MVVM", "Retrofit", "Room", "Navigation"],
+    whyBuilt: "Built as a practical solution to help family members coordinate shopping list items in real-time while avoiding double-purchases or missed items.",
+    keyChallenge: "Integrating Retrofit web service suggestions with a local Room SQLite cache for seamless offline editing and zero-latency UI rendering.",
+    impact: "Streamlined family grocery shopping, offering location-aware suggestions and persistent checklists.",
+    learnings: "Understood the details of SQLite migrations in Room, lifecycle-aware view models, and building clean, accessible layout structures in Jetpack Compose.",
     features: [
       "Add, edit, delete, and mark items as purchased",
       "Room Database for offline persistence",
@@ -121,6 +133,10 @@ export const projects = [
     summary:
       "Android app that fetches and displays the user's current GPS location with seamless runtime permission handling.",
     tech: ["Kotlin", "Jetpack Compose", "Fused Location Provider"],
+    whyBuilt: "Created as an open-source utility and learning sandbox to explore Google Play Services location APIs and understand best practices for permission UX.",
+    keyChallenge: "Gracefully handling complex location runtime permissions across different API levels, including cases where the user denies or restricts permission settings.",
+    impact: "Provides a clean, reusable boilerplate module for other Android developers implementing location-aware features.",
+    learnings: "Gained direct expertise with the Fused Location Provider, background service behaviors, and designing user-friendly rationale dialogs.",
     features: [
       "Real-time latitude and longitude display",
       "Runtime location permission handling",
@@ -136,8 +152,10 @@ export const experiences = [
   {
     company: "JOHRISOFT",
     role: "Software Development Intern",
-    location: "Kota, Rajasthan",
+    location: "Kota, Rajasthan (Remote)",
     period: "May 2025 – Jul 2025",
+    tech: ["Spring Boot", "MySQL", "REST APIs", "Git", "Jira"],
+    impact: "Delivered production-grade APIs that reduced query bottlenecks by 20%, and refactored core modules to speed up developer onboarding and debugging cycles by 25%.",
     responsibilities: [
       "Developed and integrated 5+ RESTful APIs, improving backend data flow and reducing API response latency by approximately 20%",
       "Collaborated in a 5-member Agile team using Git and Jira, delivering features on time",
@@ -165,6 +183,34 @@ export const activities = [
       "Managed operations for 100+ participants and coordinated team schedules for the event held on 3 May 2025",
       "Handled vendor communication, event setup, and post-event wrap-up with zero operational delays",
     ],
+  },
+];
+
+export const timelineEvents = [
+  {
+    year: "2022",
+    title: "Started Programming Journey",
+    description: "Began my Computer Science Engineering B.Tech at JUET. Discovered C++ and fell in love with coding, starting with command-line tools and solving simple algorithm puzzles.",
+  },
+  {
+    year: "2023",
+    title: "Discovered Mobile Development",
+    description: "Built my first basic Android application. Learned Java, Kotlin, XML layouts, and the Android SDK. Seeing code run in the palm of my hand changed my career direction.",
+  },
+  {
+    year: "2024",
+    title: "Built First Production-Grade Project",
+    description: "Shifted entirely to modern declarative UI with Jetpack Compose. Adopted clean MVVM architecture, Room database, and local persistence. Focused on writing modular, reusable code.",
+  },
+  {
+    year: "2025",
+    title: "Software Engineering Internship",
+    description: "Interned at JOHRISOFT. Collaborated with senior engineers to build 5+ REST APIs using Spring Boot, optimized query times, and adapted to corporate Agile sprints.",
+  },
+  {
+    year: "2026",
+    title: "Graduation & Full-Time Opportunities",
+    description: "Graduating in June 2026. Ready to bring high energy, clean Kotlin practices, and a product-focused mindset to a forward-thinking engineering team.",
   },
 ];
 

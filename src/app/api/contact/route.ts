@@ -9,12 +9,44 @@ const contactSchema = z.object({
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(5000),
 });
 
+function readEnv(name: string) {
+  const raw = process.env[name];
+  if (!raw) return undefined;
+
+  const trimmed = raw.trim();
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1).trim();
+  }
+
+  return trimmed;
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function resendErrorMessage(error: { message?: string; name?: string }) {
+  const message = error.message?.trim();
+  if (!message) {
+    return "Failed to send email. Please try again or email shivanshs673@gmail.com directly.";
+  }
+
+  if (message.toLowerCase().includes("only send testing emails")) {
+    return "Email delivery is in test mode. Set RESEND_TO_EMAIL on Vercel to the same email you used to sign up for Resend, or verify a custom domain in Resend.";
+  }
+
+  if (message.toLowerCase().includes("invalid") && message.toLowerCase().includes("from")) {
+    return "Invalid sender address. On Vercel, set RESEND_FROM_EMAIL to: Portfolio <onboarding@resend.dev> (no extra quotes).";
+  }
+
+  return message;
 }
 
 export async function POST(request: Request) {
@@ -35,13 +67,13 @@ export async function POST(request: Request) {
 
   const { name, email, subject, message } = parsed.data;
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL;
-  const toEmail = process.env.RESEND_TO_EMAIL ?? "shivanshs673@gmail.com";
+  const apiKey = readEnv("RESEND_API_KEY");
+  const fromEmail = readEnv("RESEND_FROM_EMAIL") ?? "Portfolio <onboarding@resend.dev>";
+  const toEmail = readEnv("RESEND_TO_EMAIL") ?? "shivanshs673@gmail.com";
 
-  if (!apiKey || !fromEmail) {
+  if (!apiKey) {
     return NextResponse.json(
-      { error: "Email service is not configured. Please email shivanshs673@gmail.com directly." },
+      { error: "Email API key is not configured. Please email shivanshs673@gmail.com directly." },
       { status: 503 },
     );
   }
@@ -70,7 +102,7 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend error:", error);
-    return NextResponse.json({ error: "Failed to send email. Please try again or email directly." }, { status: 500 });
+    return NextResponse.json({ error: resendErrorMessage(error) }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true, message: "Message sent successfully." });

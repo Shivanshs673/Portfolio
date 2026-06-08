@@ -55,3 +55,29 @@ export async function getGithubShowcase(username: string) {
     return { profile: null, repos: [] };
   }
 }
+
+export type GitHubEvent = {
+  id: string;
+  type: string;
+  repo: { name: string; url: string };
+  payload: {
+    action?: string;
+    ref_type?: string;
+    commits?: Array<{ sha: string; message: string; author: { name: string; email: string } }>;
+  };
+  created_at: string;
+};
+
+export async function getGithubEvents(username: string): Promise<GitHubEvent[]> {
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}/events/public?per_page=5`, {
+      headers,
+      next: { revalidate: 1800 },
+    });
+    if (!response.ok) return [];
+    return (await response.json()) as GitHubEvent[];
+  } catch {
+    return [];
+  }
+}
+

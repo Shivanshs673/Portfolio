@@ -4,11 +4,14 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { useEffect, useState } from "react";
 
+import { HeroAndroidLogo, HeroParticles, TwinkleStars } from "@/components/motion/hero-effects";
+import { StaggerReveal, WordReveal, staggerItem } from "@/components/motion/scroll-reveal";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { contactInfo, heroHighlights, quickFacts } from "@/lib/data";
+import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
 
 const HeroScene = dynamic(() => import("@/components/hero-scene").then((mod) => mod.HeroScene), { ssr: false });
 
@@ -24,22 +27,20 @@ function TypingLine() {
   }, [prefersReducedMotion]);
 
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1 text-xs font-medium text-cyan-100">
+    <motion.span
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO }}
+      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1 text-xs font-medium text-cyan-100"
+    >
       <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_24px_rgba(103,232,249,0.8)]" />
       {heroHighlights[index]}
-    </span>
+    </motion.span>
   );
 }
 
 export function HeroSection() {
-  const titleRef = useRef<HTMLDivElement | null>(null);
   const reducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (reducedMotion) return;
-
-    gsap.fromTo(titleRef.current, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power4.out" });
-  }, [reducedMotion]);
 
   return (
     <section id="home" className="relative overflow-hidden pt-10 sm:pt-16 lg:pt-24">
@@ -48,44 +49,87 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:96px_96px] opacity-20 [mask-image:radial-gradient(circle_at_center,black,transparent_82%)]" />
       </div>
 
+      <TwinkleStars />
+      <HeroParticles />
+      <HeroAndroidLogo />
+
       <div className="absolute inset-x-0 top-0 z-0 hidden h-[360px] opacity-30 sm:block sm:h-[480px]">
         <HeroScene />
       </div>
 
       <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-28">
-        <div ref={titleRef} className="relative z-10 pt-8 text-center sm:pt-12 lg:pt-20">
+        <div className="relative z-10 pt-8 text-center sm:pt-12 lg:pt-20">
           <TypingLine />
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="mt-5 space-y-4 sm:mt-6 sm:space-y-6">
-            <p className="text-xs uppercase tracking-[0.25em] text-cyan-200/80 sm:text-sm sm:tracking-[0.35em]">
+          <div className="mt-5 space-y-4 sm:mt-6 sm:space-y-6">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: DURATION.base, delay: 0.15, ease: EASE_OUT_EXPO }}
+              className="text-xs uppercase tracking-[0.25em] text-cyan-200/80 sm:text-sm sm:tracking-[0.35em]"
+            >
               Android & Software Developer
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-              Shivansh Shukla
-            </h1>
-            <p className="mx-auto max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 lg:text-xl">
-              Building scalable Android applications with Kotlin, Jetpack Compose, Supabase, and MVVM architecture.
-            </p>
-          </motion.div>
-
-          <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-            <Button asChild size="lg" variant="accent" className="w-full sm:w-auto">
-              <Link href="#projects">
-                View Projects
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="glass" className="w-full sm:w-auto">
-              <Link href="/resume.pdf" download="Shivansh_Shukla_Resume.pdf">
-                Download Resume
-                <Download className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-              <Link href="#contact">Contact Me</Link>
-            </Button>
+            </motion.p>
+            <WordReveal text="Shivansh Shukla" as="h1" className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl" />
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: DURATION.slow, delay: 0.45, ease: EASE_OUT_EXPO }}
+              className="mx-auto max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 lg:text-xl"
+            >
+              Hi, I&apos;m Shivansh. I build clean, high-performance native Android applications with Kotlin, Jetpack Compose, and clean architecture. Currently looking for Software Engineering and Android Development opportunities.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: DURATION.base, delay: 0.6, ease: EASE_OUT_EXPO }}
+              className="flex flex-wrap items-center justify-center gap-2 pt-2"
+            >
+              <Badge variant="soft" className="flex items-center gap-1.5 border-emerald-400/20 bg-emerald-500/10 text-emerald-300">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                </span>
+                Open to Work
+              </Badge>
+              <Badge variant="soft" className="border-cyan-400/20 bg-cyan-500/10 text-cyan-200">
+                Based in India
+              </Badge>
+              <Badge variant="soft" className="border-violet-400/20 bg-violet-500/10 text-violet-200">
+                Available for Internship / Full-time
+              </Badge>
+            </motion.div>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-3 text-sm text-slate-300 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
+          <StaggerReveal className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center" stagger={0.12}>
+            <motion.div variants={staggerItem}>
+              <Button asChild size="lg" variant="accent" className="w-full sm:w-auto">
+                <Link href="#projects">
+                  View Projects
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div variants={staggerItem}>
+              <Button asChild size="lg" variant="glass" className="w-full sm:w-auto">
+                <Link href="/resume.pdf" download="Shivansh_Shukla_Resume.pdf">
+                  Download Resume
+                  <Download className="h-4 w-4" />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div variants={staggerItem}>
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+                <Link href="#contact">Contact Me</Link>
+              </Button>
+            </motion.div>
+          </StaggerReveal>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: DURATION.base, delay: reducedMotion ? 0 : 0.75, ease: EASE_OUT_EXPO }}
+            className="mt-8 flex flex-col items-center gap-3 text-sm text-slate-300 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4"
+          >
             <a
               href={`mailto:${contactInfo.email}`}
               className="inline-flex max-w-full items-center gap-2 break-all transition hover:text-white sm:break-normal"
@@ -98,16 +142,16 @@ export function HeroSection() {
               <MapPin className="h-4 w-4 shrink-0 text-cyan-300" />
               {contactInfo.location}
             </span>
-          </div>
+          </motion.div>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4">
+          <StaggerReveal className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4" stagger={0.08}>
             {quickFacts.map((fact) => (
-              <div key={fact.label} className="rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur-2xl sm:rounded-3xl">
+              <motion.div key={fact.label} variants={staggerItem} className="rounded-2xl border border-white/10 bg-white/8 p-4 backdrop-blur-2xl sm:rounded-3xl">
                 <p className="text-xs uppercase tracking-[0.2em] text-slate-400 sm:tracking-[0.24em]">{fact.label}</p>
                 <p className="mt-2 text-sm text-white">{fact.value}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </StaggerReveal>
         </div>
       </div>
     </section>

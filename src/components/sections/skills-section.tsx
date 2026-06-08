@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion";
 
+import { ScrollReveal, StaggerReveal, staggerItem } from "@/components/motion/scroll-reveal";
+import { GlassShimmer, TiltSpotlightCard } from "@/components/motion/tilt-spotlight-card";
 import { skillGroups } from "@/lib/data";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
 
 export function SkillsSection() {
   return (
@@ -19,24 +22,26 @@ export function SkillsSection() {
 
         <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, groupIndex) => (
-            <motion.div
-              key={group.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: groupIndex * 0.06 }}
-            >
-              <Card className="glass h-full p-5 sm:p-6">
-                <h3 className="text-lg font-semibold text-white">{group.title}</h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <Badge key={skill} className="bg-white/8 px-3 py-1.5 text-sm text-slate-200">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
+            <ScrollReveal key={group.title} direction="up" delay={groupIndex * 0.06}>
+              <TiltSpotlightCard className="h-full rounded-3xl" borderGradient glow>
+                <Card className="glass relative h-full overflow-hidden p-5 sm:p-6">
+                  <GlassShimmer />
+                  <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+                  <StaggerReveal className="mt-4 flex flex-wrap gap-2" stagger={0.05}>
+                    {group.skills.map((skill) => (
+                      <motion.div
+                        key={skill}
+                        variants={staggerItem}
+                        whileHover={{ scale: 1.06 }}
+                        transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
+                      >
+                        <Badge className="bg-white/8 px-3 py-1.5 text-sm text-slate-200">{skill}</Badge>
+                      </motion.div>
+                    ))}
+                  </StaggerReveal>
+                </Card>
+              </TiltSpotlightCard>
+            </ScrollReveal>
           ))}
         </div>
       </div>

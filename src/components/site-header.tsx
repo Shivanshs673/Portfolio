@@ -3,13 +3,24 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 
+import { NavLinkMotion } from "@/components/motion/nav-link-motion";
 import { navLinks } from "@/lib/data";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { Button } from "@/components/ui/button";
+
+const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const activeSection = useActiveSection(sectionIds);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (value) => {
+    setScrolled(value > 24);
+  });
 
   useEffect(() => {
     const onResize = () => {
@@ -30,7 +41,14 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-slate-950/70 backdrop-blur-2xl supports-[backdrop-filter]:bg-slate-950/55">
+    <motion.header
+      className="sticky top-0 z-50 border-b border-white/8 bg-slate-950/70 supports-[backdrop-filter]:bg-slate-950/55"
+      animate={{
+        backdropFilter: scrolled ? "blur(28px)" : "blur(16px)",
+        backgroundColor: scrolled ? "rgba(2, 6, 23, 0.88)" : "rgba(2, 6, 23, 0.7)",
+      }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 lg:px-8">
         <Link href="#home" className="group flex min-w-0 items-center gap-2 sm:gap-3">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/12 bg-white/8 text-xs font-semibold tracking-[0.3em] text-cyan-100 shadow-lg shadow-cyan-500/10 transition group-hover:scale-105 sm:h-11 sm:w-11 sm:text-sm sm:tracking-[0.35em]">
@@ -43,15 +61,18 @@ export function Header() {
         </Link>
 
         <nav className="hidden max-w-[52vw] items-center gap-0.5 overflow-x-auto rounded-full border border-white/10 bg-white/5 px-1.5 py-1.5 scrollbar-none xl:flex xl:max-w-none xl:gap-1 xl:px-2 xl:py-2">
-          {navLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="shrink-0 rounded-full px-2.5 py-1.5 text-xs text-slate-300 transition hover:bg-white/10 hover:text-white xl:px-3 xl:py-2 xl:text-sm"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navLinks.map((item) => {
+            const id = item.href.replace("#", "");
+            return (
+              <NavLinkMotion
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                active={activeSection === id}
+                className="shrink-0 rounded-full px-2.5 py-1.5 text-xs text-slate-300 xl:px-3 xl:py-2 xl:text-sm"
+              />
+            );
+          })}
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
@@ -95,6 +116,6 @@ export function Header() {
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
