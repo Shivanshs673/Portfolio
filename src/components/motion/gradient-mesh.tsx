@@ -8,26 +8,35 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 export function GradientMesh() {
-  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const light1Ref = useRef<HTMLDivElement>(null);
+  const light2Ref = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (reducedMotion || !ref.current) return;
+    if (reducedMotion || !light1Ref.current || !light2Ref.current) return;
 
-    // Fluidly transitions the mesh coordinates down as page scrolls
-    const tween = gsap.to(ref.current, {
-      background: "radial-gradient(circle at 80% 80%, rgba(168,85,247,0.16), transparent 45%), radial-gradient(circle at 15% 75%, rgba(56,189,248,0.14), transparent 40%)",
-      scrollTrigger: {
-        trigger: "body",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1.2,
+    // Smooth, hardware-accelerated transform movement linked to scrolling
+    const trigger = ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1.2,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        gsap.set(light1Ref.current, {
+          xPercent: progress * 40,
+          yPercent: progress * 30,
+        });
+        gsap.set(light2Ref.current, {
+          xPercent: -progress * 30,
+          yPercent: progress * 40,
+        });
       },
     });
 
     return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
+      trigger.kill();
     };
   }, [reducedMotion]);
 
@@ -35,12 +44,18 @@ export function GradientMesh() {
 
   return (
     <div
-      ref={ref}
+      ref={containerRef}
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 opacity-40"
-      style={{
-        background: "radial-gradient(circle at 20% 20%, rgba(56,189,248,0.15), transparent 40%), radial-gradient(circle at 80% 10%, rgba(168,85,247,0.12), transparent 35%)",
-      }}
-    />
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-30 dark:opacity-20"
+    >
+      <div
+        ref={light1Ref}
+        className="absolute -left-[10%] -top-[10%] h-[70vw] w-[70vw] rounded-full bg-cyan-500/25 blur-[120px] dark:bg-cyan-500/20"
+      />
+      <div
+        ref={light2Ref}
+        className="absolute -right-[10%] top-[10%] h-[60vw] w-[60vw] rounded-full bg-purple-500/20 blur-[100px] dark:bg-purple-500/15"
+      />
+    </div>
   );
 }

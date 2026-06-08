@@ -31,9 +31,9 @@ export function ResumeSection() {
             />
             <Card className="glass relative overflow-hidden p-6 sm:p-8 md:p-12">
               <GlassShimmer />
-              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Resume</p>
-              <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl md:text-4xl">Download my resume</h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-300 sm:text-base">
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Resume</p>
+              <h2 className="mt-3 text-2xl font-semibold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">Download my resume</h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
                 Full details on my education, experience, projects, and technical skills.
               </p>
 

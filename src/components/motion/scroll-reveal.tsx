@@ -25,10 +25,10 @@ export function ScrollReveal({ children, className, direction = "up", delay = 0 
 
     const from =
       direction === "left"
-        ? { opacity: 0, x: -48, scale: 0.96, filter: "blur(6px)" }
+        ? { opacity: 0, x: -48, scale: 0.97 }
         : direction === "right"
-          ? { opacity: 0, x: 48, scale: 0.96, filter: "blur(6px)" }
-          : { opacity: 0, y: 48, scale: 0.96, filter: "blur(6px)" };
+          ? { opacity: 0, x: 48, scale: 0.97 }
+          : { opacity: 0, y: 36, scale: 0.97 };
 
     const tween = gsap.fromTo(
       ref.current,
@@ -38,10 +38,9 @@ export function ScrollReveal({ children, className, direction = "up", delay = 0 
         x: 0,
         y: 0,
         scale: 1,
-        filter: "blur(0px)",
         duration: DURATION.slow,
         delay,
-        ease: "power3.out",
+        ease: "power2.out",
         scrollTrigger: {
           trigger: ref.current,
           start: "top 85%",

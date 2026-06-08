@@ -13,6 +13,7 @@ export const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];
@@ -84,7 +85,7 @@ export const projects = [
       "Room, Retrofit, and Firebase Messaging integration",
     ],
     github: "https://github.com/Harry0786/ALGOVIZ",
-    accent: "from-blue-400/35 to-cyan-500/20",
+    accent: "from-cyan-400/25 to-blue-500/10",
   },
   {
     name: "FinSetu",
@@ -104,7 +105,7 @@ export const projects = [
       "Optimized data sync using Coroutines",
     ],
     github: "https://github.com/Shivanshs673/FinSetu",
-    accent: "from-cyan-400/35 to-blue-500/20",
+    accent: "from-cyan-400/25 to-blue-500/10",
   },
   {
     name: "ShoppingListApp",
@@ -124,7 +125,7 @@ export const projects = [
       "Jetpack Navigation with lifecycle-aware ViewModels",
     ],
     github: "https://github.com/Shivanshs673/ShoppingListApp",
-    accent: "from-violet-400/35 to-fuchsia-500/20",
+    accent: "from-cyan-400/25 to-blue-500/10",
   },
   {
     name: "GetLocationApp",
@@ -144,7 +145,7 @@ export const projects = [
       "Foundation for maps, geofencing, and location history",
     ],
     github: "https://github.com/Shivanshs673/GetLocationApp",
-    accent: "from-emerald-400/35 to-teal-500/20",
+    accent: "from-cyan-400/25 to-blue-500/10",
   },
 ];
 
@@ -224,4 +225,21 @@ export const quickFacts = [
   { label: "Hometown", value: "Ujjain, MP, India" },
   { label: "Education", value: "B.Tech CSE, JUET" },
   { label: "Availability", value: "Open to SDE & Android roles" },
+];
+
+export const certifications = [
+  {
+    title: "Software Engineering and Agile Software Development",
+    issuer: "Infosys Springboard",
+    date: "March 14, 2026",
+    verificationUrl: "https://verify.onwingspan.com",
+    downloadUrl: "/AgileSoftwareDevelopment.pdf",
+  },
+  {
+    title: "Angular Web Developer Certification",
+    issuer: "Infosys Springboard",
+    date: "April 14, 2026",
+    verificationUrl: "https://verify.onwingspan.com",
+    downloadUrl: "/AngularCertificate.pdf",
+  },
 ];

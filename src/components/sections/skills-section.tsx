@@ -26,7 +26,7 @@ export function SkillsSection() {
               <TiltSpotlightCard className="h-full rounded-3xl" borderGradient glow>
                 <Card className="glass relative h-full overflow-hidden p-5 sm:p-6">
                   <GlassShimmer />
-                  <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{group.title}</h3>
                   <StaggerReveal className="mt-4 flex flex-wrap gap-2" stagger={0.05}>
                     {group.skills.map((skill) => (
                       <motion.div
@@ -35,7 +35,7 @@ export function SkillsSection() {
                         whileHover={{ scale: 1.06 }}
                         transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
                       >
-                        <Badge className="bg-white/8 px-3 py-1.5 text-sm text-slate-200">{skill}</Badge>
+                        <Badge className="bg-slate-900/5 dark:bg-white/8 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-200">{skill}</Badge>
                       </motion.div>
                     ))}
                   </StaggerReveal>

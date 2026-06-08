@@ -2,13 +2,17 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 import { NavLinkMotion } from "@/components/motion/nav-link-motion";
 import { navLinks } from "@/lib/data";
 import { useActiveSection } from "@/hooks/use-active-section";
+import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+
+const ThemeToggle = dynamic(() => import("@/components/theme-toggle").then((m) => m.ThemeToggle), { ssr: false });
 
 const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
 
@@ -42,25 +46,23 @@ export function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 border-b border-white/8 bg-slate-950/70 supports-[backdrop-filter]:bg-slate-950/55"
+      className="sticky top-0 z-50 border-b border-header-border"
       animate={{
         backdropFilter: scrolled ? "blur(28px)" : "blur(16px)",
-        backgroundColor: scrolled ? "rgba(2, 6, 23, 0.88)" : "rgba(2, 6, 23, 0.7)",
+        backgroundColor: scrolled ? "var(--header-bg-scrolled)" : "var(--header-bg)",
       }}
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 lg:px-8">
         <Link href="#home" className="group flex min-w-0 items-center gap-2 sm:gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/12 bg-white/8 text-xs font-semibold tracking-[0.3em] text-cyan-100 shadow-lg shadow-cyan-500/10 transition group-hover:scale-105 sm:h-11 sm:w-11 sm:text-sm sm:tracking-[0.35em]">
-            SS
-          </span>
+          <Logo className="transition group-hover:scale-105" size={40} />
           <div className="hidden min-w-0 flex-col sm:flex">
-            <p className="truncate text-sm font-semibold text-white">Shivansh Shukla</p>
-            <p className="truncate text-xs text-slate-400">Android & Software Developer</p>
+            <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">Shivansh Shukla</p>
+            <p className="truncate text-xs text-slate-500 dark:text-slate-400">Android & Software Developer</p>
           </div>
         </Link>
 
-        <nav className="hidden max-w-[52vw] items-center gap-0.5 overflow-x-auto rounded-full border border-white/10 bg-white/5 px-1.5 py-1.5 scrollbar-none xl:flex xl:max-w-none xl:gap-1 xl:px-2 xl:py-2">
+        <nav className="hidden max-w-[52vw] items-center gap-0.5 overflow-x-auto rounded-full border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 px-1.5 py-1.5 scrollbar-none xl:flex xl:max-w-none xl:gap-1 xl:px-2 xl:py-2">
           {navLinks.map((item) => {
             const id = item.href.replace("#", "");
             return (
@@ -69,13 +71,14 @@ export function Header() {
                 href={item.href}
                 label={item.label}
                 active={activeSection === id}
-                className="shrink-0 rounded-full px-2.5 py-1.5 text-xs text-slate-300 xl:px-3 xl:py-2 xl:text-sm"
+                className="shrink-0 rounded-full px-2.5 py-1.5 text-xs text-slate-600 dark:text-slate-300 xl:px-3 xl:py-2 xl:text-sm"
               />
             );
           })}
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <ThemeToggle />
           <Button variant="accent" size="sm" className="hidden md:inline-flex" asChild>
             <Link href="#contact">Contact Me</Link>
           </Button>
@@ -97,7 +100,7 @@ export function Header() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            className="border-t border-white/5 bg-slate-950/95 px-4 py-4 xl:hidden"
+            className="border-t border-slate-900/5 dark:border-white/5 bg-slate-100/95 dark:bg-slate-950/95 px-4 py-4 xl:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2 sm:grid-cols-2">
               {navLinks.map((item) => (

@@ -44,18 +44,18 @@ export function AboutSection() {
                 <motion.div
                   whileHover={{ rotate: 8 }}
                   transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-cyan-300 sm:h-12 sm:w-12"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/8 text-cyan-600 dark:text-cyan-300 sm:h-12 sm:w-12"
                 >
                   <GraduationCap className="h-5 w-5" />
                 </motion.div>
                 <div className="min-w-0">
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">Education</p>
-                  <h3 className="mt-2 text-base font-semibold text-white sm:text-lg">{education.school}</h3>
-                  <p className="mt-1 text-sm text-slate-300">{education.degree}</p>
-                  <p className="mt-2 text-sm text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Education</p>
+                  <h3 className="mt-2 text-base font-semibold text-slate-900 dark:text-white sm:text-lg">{education.school}</h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{education.degree}</p>
+                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
                     {education.location} · {education.period}
                   </p>
-                  <p className="mt-1 text-sm text-cyan-200/80">{education.graduation}</p>
+                  <p className="mt-1 text-sm text-cyan-700 dark:text-cyan-200/80">{education.graduation}</p>
                 </div>
               </div>
             </Card>

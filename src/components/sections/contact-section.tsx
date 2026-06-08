@@ -152,7 +152,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, x: -8 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 8 }}
-                        className={`flex items-center gap-2 text-sm ${status.type === "success" ? "text-emerald-300" : "text-red-300"}`}
+                        className={`flex items-center gap-2 text-sm ${status.type === "success" ? "text-emerald-700 dark:text-emerald-300" : "text-red-700 dark:text-red-300"}`}
                       >
                         {status.type === "success" ? <SuccessCheckmark /> : null}
                         {status.text}
@@ -167,20 +167,20 @@ export function ContactSection() {
           <div className="space-y-6">
             <ScrollReveal direction="right" delay={0.06}>
               <Card className="glass p-6 md:p-8">
-                <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Direct contact</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Direct contact</p>
                 <div className="mt-4 space-y-4 text-sm">
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="flex items-center gap-3 text-white transition hover:text-cyan-200"
+                    className="flex items-center gap-3 text-slate-900 dark:text-white transition hover:text-cyan-600 dark:hover:text-cyan-200"
                   >
-                    <Mail className="h-4 w-4 text-cyan-300" />
+                    <Mail className="h-4 w-4 text-cyan-600 dark:text-cyan-300" />
                     {contactInfo.email}
                   </a>
                   <a
                     href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-3 text-white transition hover:text-cyan-200"
+                    className="flex items-center gap-3 text-slate-900 dark:text-white transition hover:text-cyan-600 dark:hover:text-cyan-200"
                   >
-                    <PhoneCall className="h-4 w-4 text-cyan-300" />
+                    <PhoneCall className="h-4 w-4 text-cyan-600 dark:text-cyan-300" />
                     {contactInfo.phone}
                   </a>
                 </div>
@@ -189,7 +189,7 @@ export function ContactSection() {
 
             <ScrollReveal direction="right" delay={0.12}>
               <Card className="glass p-6 md:p-8">
-                <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Social</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Social</p>
                 <div className="mt-4 space-y-3">
                   {socialLinks.map((item) => (
                     <motion.div

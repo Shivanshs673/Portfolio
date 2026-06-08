@@ -24,8 +24,8 @@ export function SectionHeading({ eyebrow, title, description, align = "left" }: 
       transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO }}
     >
       {eyebrow ? <Badge variant="soft" className="w-fit">{eyebrow}</Badge> : null}
-      <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">{title}</h2>
-      <p className="max-w-2xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7 md:text-lg">{description}</p>
+      <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-3xl md:text-4xl lg:text-5xl">{title}</h2>
+      <p className="max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-7 md:text-lg">{description}</p>
     </motion.div>
   );
 }
