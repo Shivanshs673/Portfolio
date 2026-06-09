@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { getSkillIcon } from "@/components/icons";
 
 type ProjectType = typeof projects[number];
 
@@ -43,8 +44,9 @@ function ProjectCard({ project }: { project: ProjectType }) {
           <div className="flex flex-1 flex-col space-y-4 p-4 sm:space-y-5 sm:p-6">
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {project.tech.map((item) => (
-                <Badge key={item} className="bg-slate-900/5 dark:bg-white/8 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-200 sm:px-3 sm:text-sm">
-                  {item}
+                <Badge key={item} className="bg-slate-900/5 dark:bg-white/8 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-200 sm:px-3 sm:text-sm flex items-center gap-1.5">
+                  {getSkillIcon(item)}
+                  <span>{item}</span>
                 </Badge>
               ))}
             </div>
@@ -136,7 +138,7 @@ export function ProjectsSection() {
         <SectionHeading
           eyebrow="Projects"
           title="Selected work"
-          description="Android applications built with Kotlin, Jetpack Compose, Supabase, and modern architecture patterns."
+          description="Native Android applications showcasing Kotlin, Hilt, Room, and clean MVVM patterns."
         />
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:gap-6 md:grid-cols-2">

@@ -2,7 +2,7 @@
 
 A high-performance, responsive developer portfolio website built with **Next.js**, **TypeScript**, and **Tailwind CSS v4**. Engineered with a product-minded perspective, featuring premium animations, context-aware theme switching, and modular, recruiter-centric storytelling.
 
-🌐 **Live Website:** [https://portfolio-5k240bbip-shivanshs673s-projects.vercel.app](https://portfolio-5k240bbip-shivanshs673s-projects.vercel.app)
+🌐 **Live Website:** [https://shivanshs673s.vercel.app](https://shivanshs673s.vercel.app)
 
 ---
 

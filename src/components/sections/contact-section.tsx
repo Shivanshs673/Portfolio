@@ -9,6 +9,21 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { SuccessCheckmark } from "@/components/motion/micro-interactions";
 import { socialLinks, contactInfo } from "@/lib/data";
 import { SectionHeading } from "@/components/section-heading";
+import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "@/components/icons";
+
+function getSocialIcon(name: string) {
+  const normalized = name.toLowerCase().trim();
+  if (normalized === "github") {
+    return <GitHubIcon className="h-4 w-4 text-slate-900 dark:text-white shrink-0" />;
+  }
+  if (normalized === "linkedin") {
+    return <LinkedInIcon className="h-4 w-4 text-[#0A66C2] shrink-0" />;
+  }
+  if (normalized === "leetcode") {
+    return <LeetCodeIcon className="h-4 w-4 text-[#FFA116] shrink-0" />;
+  }
+  return null;
+}
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -81,7 +96,7 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Contact"
           title="Get in touch"
-          description="Have an opportunity, question, or collaboration in mind? Send a message and I'll respond as soon as I can."
+          description="Reach out directly or send a message below."
         />
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-[1.1fr_0.9fr] xl:grid-cols-[1.1fr_0.9fr]">
@@ -198,10 +213,13 @@ export function ContactSection() {
                       transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
                     >
                       <Button asChild variant="glass" size="sm" className="w-full justify-between px-4 py-3">
-                        <Link href={item.href} target="_blank" rel="noreferrer">
-                          {item.name}
+                        <Link href={item.href} target="_blank" rel="noreferrer" className="flex w-full items-center justify-between">
+                          <span className="flex items-center gap-2">
+                            {getSocialIcon(item.name)}
+                            <span>{item.name}</span>
+                          </span>
                           <motion.span whileHover={{ x: 4 }} transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}>
-                            <Send className="h-4 w-4" />
+                            <Send className="h-4 w-4 shrink-0 text-slate-400" />
                           </motion.span>
                         </Link>
                       </Button>

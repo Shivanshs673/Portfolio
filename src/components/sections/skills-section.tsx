@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import { ScrollReveal, StaggerReveal, staggerItem } from "@/components/motion/scroll-reveal";
 import { GlassShimmer, TiltSpotlightCard } from "@/components/motion/tilt-spotlight-card";
 import { skillGroups } from "@/lib/data";
@@ -9,6 +8,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
+import { getSkillIcon } from "@/components/icons";
 
 export function SkillsSection() {
   return (
@@ -17,7 +17,7 @@ export function SkillsSection() {
         <SectionHeading
           eyebrow="Skills"
           title="Technical skills"
-          description="Mobile development, Supabase & Firebase integration, and computer science fundamentals."
+          description="Android SDK, Jetpack Compose, MVVM, and cloud integrations."
         />
 
         <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,7 +35,10 @@ export function SkillsSection() {
                         whileHover={{ scale: 1.06 }}
                         transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
                       >
-                        <Badge className="bg-slate-900/5 dark:bg-white/8 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-200">{skill}</Badge>
+                        <Badge className="bg-slate-900/5 dark:bg-white/8 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+                          {getSkillIcon(skill)}
+                          <span>{skill}</span>
+                        </Badge>
                       </motion.div>
                     ))}
                   </StaggerReveal>
@@ -48,3 +51,4 @@ export function SkillsSection() {
     </section>
   );
 }
+

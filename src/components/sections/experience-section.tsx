@@ -15,7 +15,7 @@ export function ExperienceSection() {
         <SectionHeading
           eyebrow="Experience"
           title="Work & leadership"
-          description="Professional internship experience and campus leadership roles."
+          description="Software engineering internship history and community advisory positions."
         />
 
         <div className="relative mt-10 space-y-4">
@@ -42,7 +42,7 @@ export function ExperienceSection() {
                   <p className="text-sm text-slate-500 dark:text-slate-400">{entry.period}</p>
                 </div>
 
-                <ul className="mt-6 space-y-2 text-sm leading-6 text-slate-655 dark:text-slate-300">
+                <ul className="mt-6 space-y-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                   {entry.responsibilities.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span className="text-cyan-600 dark:text-cyan-400">·</span>
@@ -98,7 +98,7 @@ export function ExperienceSection() {
                   <p className="text-sm text-slate-500 dark:text-slate-400">{entry.period}</p>
                 </div>
 
-                <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-655 dark:text-slate-300">
+                <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                   {entry.highlights.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span className="text-cyan-600 dark:text-cyan-400">·</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Code2, Globe, UserRound } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { Magnetic } from "@/components/motion/tilt-spotlight-card";
@@ -9,11 +9,13 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { contactInfo } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
+import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "@/components/icons";
+import { cn } from "@/lib/utils";
 
 const footerSocialLinks = [
-  { label: "GitHub", href: contactInfo.github, icon: Code2 },
-  { label: "LinkedIn", href: contactInfo.linkedin, icon: UserRound },
-  { label: "LeetCode", href: contactInfo.leetcode, icon: Globe },
+  { label: "GitHub", href: contactInfo.github, icon: GitHubIcon, colorClass: "text-slate-900 dark:text-white" },
+  { label: "LinkedIn", href: contactInfo.linkedin, icon: LinkedInIcon, colorClass: "text-[#0A66C2]" },
+  { label: "LeetCode", href: contactInfo.leetcode, icon: LeetCodeIcon, colorClass: "text-[#FFA116]" },
 ];
 
 export function FooterSection({ lastUpdated }: { lastUpdated: string }) {
@@ -57,9 +59,9 @@ export function FooterSection({ lastUpdated }: { lastUpdated: string }) {
               return (
                 <Magnetic key={link.label} strength={0.18}>
                   <Button asChild variant="glass" size="sm" className="px-3 sm:px-4">
-                    <Link href={link.href} target="_blank" rel="noreferrer">
-                      <Icon className="h-4 w-4" />
-                      {link.label}
+                    <Link href={link.href} target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                      <Icon className={cn("h-4 w-4 shrink-0", link.colorClass)} />
+                      <span>{link.label}</span>
                       <motion.span whileHover={{ x: 3, y: -3 }} transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}>
                         <ArrowUpRight className="h-3.5 w-3.5" />
                       </motion.span>

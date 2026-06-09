@@ -76,7 +76,7 @@ export function HeroSection() {
               transition={{ duration: DURATION.slow, delay: 0.45, ease: EASE_OUT_EXPO }}
               className="mx-auto max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8 lg:text-xl"
             >
-              Hi, I&apos;m Shivansh. I build clean, high-performance native Android applications with Kotlin, Jetpack Compose, and clean architecture. Currently looking for Software Engineering and Android Development opportunities.
+              Hi, I&apos;m Shivansh. I build high-performance native Android apps using Kotlin, Jetpack Compose, and Clean Architecture.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}

@@ -37,7 +37,7 @@ function AnimatedCounter({ value, duration = 2, suffix = "" }: CounterProps) {
   }, [rounded, suffix]);
 
   return (
-    <span ref={ref} className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+    <span ref={ref} className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
       0{suffix}
     </span>
   );
@@ -61,12 +61,12 @@ export function MetricsSection() {
             {metricsList.map((item) => (
               <Card
                 key={item.label}
-                className="glass relative overflow-hidden p-4 text-center transition-all duration-300 hover:scale-[1.02] hover:border-white/15"
+                className="glass relative overflow-hidden p-4 text-center transition-all duration-300 hover:scale-[1.02] hover:border-slate-900/15 dark:hover:border-white/15"
               >
                 <GlassShimmer />
                 <div className="flex flex-col items-center justify-center gap-1">
                   <AnimatedCounter value={item.value} suffix={item.suffix} />
-                  <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-slate-400 sm:text-xs">
+                  <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-xs">
                     {item.label}
                   </p>
                 </div>

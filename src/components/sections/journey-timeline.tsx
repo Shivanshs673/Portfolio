@@ -40,17 +40,17 @@ export function JourneyTimeline() {
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-[100px_1fr] md:gap-6">
                   {/* Year display */}
                   <div className="flex items-center md:items-start pt-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-bold text-cyan-200">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/20 dark:border-cyan-400/20 bg-cyan-500/5 dark:bg-cyan-400/10 px-3 py-1 text-xs font-bold text-cyan-700 dark:text-cyan-200">
                       <Calendar className="h-3.5 w-3.5 shrink-0" />
                       {event.year}
                     </span>
                   </div>
 
                   {/* Narrative details card */}
-                  <Card className="glass relative overflow-hidden p-5 sm:p-6 transition-all duration-300 hover:scale-[1.01] hover:border-white/12">
+                  <Card className="glass relative overflow-hidden p-5 sm:p-6 transition-all duration-300 hover:scale-[1.01] hover:border-slate-900/12 dark:hover:border-white/12">
                     <GlassShimmer />
-                    <h3 className="text-base font-semibold text-white sm:text-lg">{event.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{event.description}</p>
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white sm:text-lg">{event.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{event.description}</p>
                   </Card>
                 </div>
               </ScrollReveal>

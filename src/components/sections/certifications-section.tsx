@@ -19,7 +19,7 @@ export function CertificationsSection() {
         <SectionHeading
           eyebrow="Certifications"
           title="Professional credentials"
-          description="Verified credentials and certifications demonstrating proficiency in software engineering methodologies and web development."
+          description="Verified professional technical credentials from Infosys Springboard."
         />
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:gap-6 md:grid-cols-2">
