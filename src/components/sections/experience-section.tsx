@@ -7,6 +7,8 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { activities, experiences } from "@/lib/data";
 import { SectionHeading } from "@/components/section-heading";
 import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
+import { Badge } from "@/components/ui/badge";
+import { getSkillIcon } from "@/components/icons";
 
 export function ExperienceSection() {
   return (
@@ -54,12 +56,13 @@ export function ExperienceSection() {
                 {entry.tech && (
                   <div className="mt-5 flex flex-wrap gap-1.5 sm:gap-2">
                     {entry.tech.map((t) => (
-                      <span
+                      <Badge
                         key={t}
-                        className="inline-flex items-center rounded-full border border-slate-900/8 dark:border-white/8 bg-slate-900/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300"
+                        className="bg-slate-900/5 dark:bg-white/8 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-200 flex items-center gap-1.5"
                       >
-                        {t}
-                      </span>
+                        {getSkillIcon(t)}
+                        <span>{t}</span>
+                      </Badge>
                     ))}
                   </div>
                 )}
