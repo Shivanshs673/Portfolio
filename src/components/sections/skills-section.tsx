@@ -23,19 +23,19 @@ export function SkillsSection() {
         <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, groupIndex) => (
             <ScrollReveal key={group.title} direction="up" delay={groupIndex * 0.06}>
-              <TiltSpotlightCard className="h-full rounded-3xl" borderGradient glow>
-                <Card className="glass relative h-full overflow-hidden p-5 sm:p-6">
+              <TiltSpotlightCard className="h-full rounded-[24px]" borderGradient glow>
+                <Card className="relative h-full overflow-hidden p-5 sm:p-6 border-card-border bg-card">
                   <GlassShimmer />
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{group.title}</h3>
+                  <h3 className="text-lg font-semibold font-display text-[#F8F5EE]">{group.title}</h3>
                   <StaggerReveal className="mt-4 flex flex-wrap gap-2" stagger={0.05}>
                     {group.skills.map((skill) => (
                       <motion.div
                         key={skill}
                         variants={staggerItem}
-                        whileHover={{ scale: 1.06 }}
+                        whileHover={{ scale: 1.05 }}
                         transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
                       >
-                        <Badge className="bg-slate-900/5 dark:bg-white/8 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+                        <Badge variant="soft" className="px-3 py-1.5 text-sm flex items-center gap-1.5">
                           {getSkillIcon(skill)}
                           <span>{skill}</span>
                         </Badge>

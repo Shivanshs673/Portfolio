@@ -36,7 +36,7 @@ export function CommandPalette() {
       className="fixed inset-0 z-[80] bg-slate-950/70 backdrop-blur-sm"
       overlayClassName="fixed inset-0 bg-slate-950/70 backdrop-blur-sm"
     >
-      <div className="mx-auto mt-[12vh] w-[92vw] max-w-2xl rounded-[28px] border border-white/10 bg-slate-950/95 p-4 text-white shadow-2xl shadow-cyan-500/10">
+      <div className="mx-auto mt-[12vh] w-[92vw] max-w-2xl rounded-[28px] border border-white/10 bg-slate-950/95 p-4 text-white shadow-2xl shadow-[#10B981]/5">
         <Command.Input
           autoFocus
           placeholder="Search sections, actions, or links..."
@@ -79,7 +79,7 @@ export function CommandPalette() {
                   }}
                   className="flex cursor-pointer items-center gap-3 rounded-2xl px-3 py-3 transition hover:bg-white/8 aria-selected:bg-white/10"
                 >
-                  <Icon className="h-4 w-4 text-cyan-300" />
+                  <Icon className="h-4 w-4 text-[#10B981]" />
                   {item.label}
                 </Command.Item>
               );

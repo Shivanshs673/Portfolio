@@ -5,15 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-slate-900/10 dark:bg-white/15 text-slate-900 dark:text-white shadow-lg shadow-cyan-500/5 dark:shadow-cyan-500/10 backdrop-blur-xl hover:bg-slate-900/15 dark:hover:bg-white/20",
-        glass: "border border-slate-900/10 dark:border-white/15 bg-slate-900/5 dark:bg-white/10 text-slate-900 dark:text-white backdrop-blur-xl hover:bg-slate-900/10 dark:hover:bg-white/15",
-        accent: "bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 text-slate-950 shadow-xl shadow-cyan-500/20 hover:brightness-110",
-        outline: "border border-slate-900/10 dark:border-white/15 bg-transparent text-slate-900 dark:text-white hover:bg-slate-900/5 dark:hover:bg-white/10",
-        ghost: "text-slate-700 dark:text-white/80 hover:bg-slate-900/5 dark:hover:bg-white/8 hover:text-slate-900 dark:hover:text-white",
+        default: "bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-sm",
+        glass: "border border-card-border bg-card/40 backdrop-blur-xl text-slate-900 dark:text-white hover:bg-card/70",
+        accent: "bg-primary-accent text-white hover:bg-primary-accent-hover shadow-md shadow-primary-accent/10",
+        outline: "border border-card-border bg-transparent text-slate-900 dark:text-white hover:bg-surface",
+        ghost: "text-muted hover:bg-surface hover:text-foreground",
       },
       size: {
         default: "h-11 px-5 py-2",

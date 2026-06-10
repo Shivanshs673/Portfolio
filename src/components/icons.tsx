@@ -95,30 +95,30 @@ export function getSkillIcon(skill: string) {
 
   // Lucide icons for concepts
   if (normalized === "material design") {
-    return <Palette className="h-3.5 w-3.5 text-pink-500 shrink-0" />;
+    return <Palette className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "mvvm") {
-    return <Layers className="h-3.5 w-3.5 text-indigo-400 shrink-0" />;
+    return <Layers className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "hilt") {
-    return <Code2 className="h-3.5 w-3.5 text-amber-500 shrink-0" />;
+    return <Code2 className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "retrofit") {
-    return <Network className="h-3.5 w-3.5 text-teal-400 shrink-0" />;
+    return <Network className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "data structures & algorithms") {
-    return <Binary className="h-3.5 w-3.5 text-blue-400 shrink-0" />;
+    return <Binary className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "rest apis" || normalized === "navigation") {
-    return <Globe className="h-3.5 w-3.5 text-emerald-400 shrink-0" />;
+    return <Globe className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "clean architecture") {
-    return <Milestone className="h-3.5 w-3.5 text-violet-400 shrink-0" />;
+    return <Milestone className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
   if (normalized === "problem solving") {
-    return <BrainCircuit className="h-3.5 w-3.5 text-orange-400 shrink-0" />;
+    return <BrainCircuit className="h-3.5 w-3.5 text-[#10B981] shrink-0" />;
   }
 
-  return <Code2 className="h-3.5 w-3.5 text-slate-400 shrink-0" />;
+  return <Code2 className="h-3.5 w-3.5 text-[#B8B8B8] shrink-0" />;
 }
 

@@ -14,13 +14,13 @@ import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "@/components/icons";
 function getSocialIcon(name: string) {
   const normalized = name.toLowerCase().trim();
   if (normalized === "github") {
-    return <GitHubIcon className="h-4 w-4 text-slate-900 dark:text-white shrink-0" />;
+    return <GitHubIcon className="h-4 w-4 text-[#F8F5EE] shrink-0" />;
   }
   if (normalized === "linkedin") {
-    return <LinkedInIcon className="h-4 w-4 text-[#0A66C2] shrink-0" />;
+    return <LinkedInIcon className="h-4 w-4 text-[#F8F5EE] shrink-0" />;
   }
   if (normalized === "leetcode") {
-    return <LeetCodeIcon className="h-4 w-4 text-[#FFA116] shrink-0" />;
+    return <LeetCodeIcon className="h-4 w-4 text-[#F8F5EE] shrink-0" />;
   }
   return null;
 }
@@ -153,7 +153,7 @@ export function ContactSection() {
                     <Button
                       asChild
                       variant="outline"
-                      className="w-full sm:w-auto border-cyan-400/30 text-cyan-300 hover:bg-cyan-400/10"
+                      className="w-full sm:w-auto border-primary-accent/30 text-primary-accent hover:bg-primary-accent/10"
                     >
                       <a href={mailtoUrl}>
                         Send via Email App
@@ -181,21 +181,21 @@ export function ContactSection() {
 
           <div className="space-y-6">
             <ScrollReveal direction="right" delay={0.06}>
-              <Card className="glass p-6 md:p-8">
-                <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Direct contact</p>
+              <Card className="p-6 md:p-8 border-card-border bg-card shadow-sm">
+                <p className="text-xs uppercase tracking-[0.28em] text-muted">Direct contact</p>
                 <div className="mt-4 space-y-4 text-sm">
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="flex items-center gap-3 text-slate-900 dark:text-white transition hover:text-cyan-600 dark:hover:text-cyan-200"
+                    className="flex items-center gap-3 text-[#F8F5EE] transition hover:text-[#10B981]"
                   >
-                    <Mail className="h-4 w-4 text-cyan-600 dark:text-cyan-300" />
+                    <Mail className="h-4 w-4 text-[#10B981]" />
                     {contactInfo.email}
                   </a>
                   <a
                     href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-3 text-slate-900 dark:text-white transition hover:text-cyan-600 dark:hover:text-cyan-200"
+                    className="flex items-center gap-3 text-[#F8F5EE] transition hover:text-[#10B981]"
                   >
-                    <PhoneCall className="h-4 w-4 text-cyan-600 dark:text-cyan-300" />
+                    <PhoneCall className="h-4 w-4 text-[#10B981]" />
                     {contactInfo.phone}
                   </a>
                 </div>
@@ -204,7 +204,7 @@ export function ContactSection() {
 
             <ScrollReveal direction="right" delay={0.12}>
               <Card className="glass p-6 md:p-8">
-                <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Social</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-[#B8B8B8]">Social</p>
                 <div className="mt-4 space-y-3">
                   {socialLinks.map((item) => (
                     <motion.div

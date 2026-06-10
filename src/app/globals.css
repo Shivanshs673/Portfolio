@@ -1,37 +1,50 @@
+@import url("https://api.fontshare.com/css?f[]=clash-display@200,300,400,500,600,700&display=swap");
+
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --card: rgba(255, 255, 255, 0.72);
-  --card-border: rgba(15, 23, 42, 0.08);
-  --muted: #64748b;
-  --header-bg: rgba(248, 250, 252, 0.7);
-  --header-bg-scrolled: rgba(248, 250, 252, 0.92);
-  --header-border: rgba(15, 23, 42, 0.06);
+  --background: #0B0B0B;
+  --foreground: #F8F5EE;
+  --surface: #161616;
+  --card: #1C1C1C;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --muted: #B8B8B8;
+  --header-bg: rgba(11, 11, 11, 0.75);
+  --header-bg-scrolled: rgba(11, 11, 11, 0.9);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --primary-accent: #10B981;
+  --primary-accent-hover: #34D399;
+  --font-sans: var(--font-geist-sans), Inter, sans-serif;
+  --font-display: "Clash Display", var(--font-geist-sans), sans-serif;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --card: rgba(15, 23, 42, 0.72);
+  --background: #0B0B0B;
+  --foreground: #F8F5EE;
+  --surface: #161616;
+  --card: #1C1C1C;
   --card-border: rgba(255, 255, 255, 0.08);
-  --muted: #94a3b8;
-  --header-bg: rgba(2, 6, 23, 0.7);
-  --header-bg-scrolled: rgba(2, 6, 23, 0.88);
+  --muted: #B8B8B8;
+  --header-bg: rgba(11, 11, 11, 0.75);
+  --header-bg-scrolled: rgba(11, 11, 11, 0.9);
   --header-border: rgba(255, 255, 255, 0.08);
+  --primary-accent: #10B981;
+  --primary-accent-hover: #34D399;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
   --color-card: var(--card);
   --color-card-border: var(--card-border);
   --color-muted: var(--muted);
   --color-header-border: var(--header-border);
-  --font-sans: var(--font-geist-sans);
+  --color-primary-accent: var(--primary-accent);
+  --color-primary-accent-hover: var(--primary-accent-hover);
+  --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 }
 
@@ -59,21 +72,17 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.08), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.06), transparent 24%),
-    radial-gradient(circle at 50% 80%, rgba(34, 197, 94, 0.04), transparent 22%),
-    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 40%, #f8fafc 100%);
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06), transparent 50%),
+    #0B0B0B;
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Inter, sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dark body {
   background:
-    radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.16), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.14), transparent 24%),
-    radial-gradient(circle at 50% 80%, rgba(34, 197, 94, 0.08), transparent 22%),
-    linear-gradient(180deg, #020617 0%, #030712 40%, #020617 100%);
+    radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.06), transparent 50%),
+    #0B0B0B;
 }
 
 * {
@@ -81,8 +90,8 @@ body {
 }
 
 ::selection {
-  background: rgba(34, 211, 238, 0.28);
-  color: white;
+  background: rgba(16, 185, 129, 0.28);
+  color: #F8F5EE;
 }
 
 @keyframes floaty {
@@ -113,13 +122,13 @@ body {
 @keyframes glowPulse {
   0%,
   100% {
-    opacity: 0.55;
-    filter: blur(24px);
+    opacity: 0.45;
+    filter: blur(32px);
   }
 
   50% {
-    opacity: 0.95;
-    filter: blur(32px);
+    opacity: 0.8;
+    filter: blur(44px);
   }
 }
 
@@ -136,7 +145,19 @@ body {
 
 .motion-safe-focus:focus {
   transform: scale(1.01);
-  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .noise {
@@ -164,15 +185,15 @@ body {
   position: absolute;
   inset: auto 0 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.15), transparent);
 }
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(248, 245, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 245, 238, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent 85%);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.5), transparent 85%);
 }
 
 .glow-orb {
@@ -188,7 +209,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #0f172a 0%, #0284c7 42%, #7c3aed 72%, #0f172a 100%);
+  background: linear-gradient(135deg, #F8F5EE 30%, #10B981 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -196,7 +217,7 @@ body {
 }
 
 .dark .text-gradient {
-  background: linear-gradient(135deg, #f8fafc 0%, #7dd3fc 42%, #c084fc 72%, #f8fafc 100%);
+  background: linear-gradient(135deg, #F8F5EE 30%, #10B981 100%);
 }
 
 .scrollbar-none {

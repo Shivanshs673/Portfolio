@@ -23,7 +23,7 @@ export function AboutSection() {
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:gap-6 lg:grid-cols-2">
           <ScrollReveal direction="up">
-            <Card className="glass relative overflow-hidden p-5 sm:p-6">
+            <Card className="relative overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
               <GlassShimmer />
               <StaggerReveal className="flex flex-wrap gap-3">
                 {aboutPoints.map((point) => (
@@ -38,24 +38,24 @@ export function AboutSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.08}>
-            <Card className="glass relative overflow-hidden p-5 sm:p-6">
+            <Card className="relative overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
               <GlassShimmer />
               <div className="flex items-start gap-3 sm:gap-4">
                 <motion.div
                   whileHover={{ rotate: 8 }}
                   transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/8 text-cyan-600 dark:text-cyan-300 sm:h-12 sm:w-12"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-card-border bg-card text-primary-accent sm:h-12 sm:w-12 shadow-sm"
                 >
                   <GraduationCap className="h-5 w-5" />
                 </motion.div>
                 <div className="min-w-0">
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Education</p>
-                  <h3 className="mt-2 text-base font-semibold text-slate-900 dark:text-white sm:text-lg">{education.school}</h3>
-                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{education.degree}</p>
-                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.24em] text-muted">Education</p>
+                  <h3 className="mt-2 text-base font-bold font-display text-[#F8F5EE] sm:text-lg">{education.school}</h3>
+                  <p className="mt-1 text-sm text-[#B8B8B8]">{education.degree}</p>
+                  <p className="mt-2 text-sm text-[#B8B8B8]/80">
                     {education.location} · {education.period}
                   </p>
-                  <p className="mt-1 text-sm text-cyan-700 dark:text-cyan-200/80">{education.graduation}</p>
+                  <p className="mt-1 text-sm text-[#10B981] font-semibold">{education.graduation}</p>
                 </div>
               </div>
             </Card>

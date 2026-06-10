@@ -41,15 +41,15 @@ export function HeroAndroidLogo() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none absolute left-1/2 top-24 z-[1] hidden -translate-x-1/2 text-cyan-300/70 sm:block lg:top-28"
+      className="pointer-events-none absolute left-1/2 top-24 z-[1] hidden -translate-x-1/2 text-emerald-300/70 sm:block lg:top-28"
       style={{ x: springX, y: springY }}
       animate={{ y: [0, -12, 0], rotate: [0, 6, 0, -6, 0] }}
       transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: EASE_IN_OUT_CIRC }}
     >
-      <div className="relative h-16 w-16 rounded-3xl border border-cyan-400/20 bg-cyan-400/5 p-3 shadow-[0_0_40px_rgba(34,211,238,0.15)] backdrop-blur-xl lg:h-20 lg:w-20">
+      <div className="relative h-16 w-16 rounded-3xl border border-emerald-500/20 bg-emerald-500/5 p-3 shadow-[0_0_40px_rgba(16,185,129,0.15)] backdrop-blur-xl lg:h-20 lg:w-20">
         <AndroidLogoMark />
         <motion.div
-          className="absolute inset-0 rounded-3xl ring-1 ring-cyan-300/20"
+          className="absolute inset-0 rounded-3xl ring-1 ring-emerald-500/20"
           animate={{ opacity: [0.3, 0.8, 0.3], scale: [1, 1.05, 1] }}
           transition={{ duration: 3.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
@@ -75,7 +75,7 @@ export function HeroParticles() {
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
-          className="absolute rounded-full bg-cyan-300/50"
+          className="absolute rounded-full bg-emerald-500/30"
           style={{ left: particle.left, top: particle.top, width: particle.size, height: particle.size }}
           animate={{ y: [0, -18, 0], opacity: [0.2, 0.9, 0.2], scale: [1, 1.4, 1] }}
           transition={{ duration: 4 + (particle.id % 3), repeat: Number.POSITIVE_INFINITY, delay: particle.delay, ease: "easeInOut" }}

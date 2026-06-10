@@ -30,41 +30,41 @@ export function CertificationsSection() {
               delay={index * 0.06}
             >
               <TiltSpotlightCard
-                className="h-full rounded-3xl shadow-lg shadow-slate-950/20 transition-shadow duration-500 hover:shadow-2xl hover:shadow-cyan-500/10"
+                className="h-full rounded-[24px] shadow-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-[#10B981]/5"
                 borderGradient
                 glow
               >
-                <Card className="glass relative flex h-full flex-col justify-between overflow-hidden p-6 sm:p-8">
+                <Card className="relative flex h-full flex-col justify-between overflow-hidden p-6 sm:p-8 border-card-border bg-card">
                   <GlassShimmer />
                   <div className="flex items-start gap-4">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 6 }}
                       transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/8 text-cyan-600 dark:text-cyan-300 sm:h-14 sm:w-14"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-card-border bg-[#161616] text-[#10B981] sm:h-14 sm:w-14 shadow-sm"
                     >
                       <Award className="h-6 w-6 sm:h-7 sm:w-7" />
                     </motion.div>
                     <div className="min-w-0">
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-200/80 sm:text-xs sm:tracking-[0.24em]">
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-[#10B981] font-semibold">
                         {cert.issuer}
                       </p>
-                      <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-white sm:text-xl leading-snug">
+                      <h3 className="mt-2 text-lg font-bold font-display text-[#F8F5EE] sm:text-xl leading-snug">
                         {cert.title}
                       </h3>
-                      <div className="mt-3 flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                      <div className="mt-3 flex items-center gap-1.5 text-xs text-[#B8B8B8]/80">
                         <Calendar className="h-3.5 w-3.5" />
                         <span>Issued: {cert.date}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-900/5 dark:border-white/5 flex flex-wrap items-center justify-end gap-2">
+                  <div className="mt-6 pt-4 border-t border-card-border flex flex-wrap items-center justify-end gap-2">
                     <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}>
                       <Button
                         asChild
                         size="sm"
                         variant="glass"
-                        className="transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                        className="transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] border-card-border text-[#F8F5EE]"
                       >
                         <a href={cert.downloadUrl} download>
                           <Download className="h-3.5 w-3.5" />
@@ -77,7 +77,7 @@ export function CertificationsSection() {
                         asChild
                         size="sm"
                         variant="glass"
-                        className="transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                        className="transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] border-card-border text-[#F8F5EE]"
                       >
                         <Link href={cert.verificationUrl} target="_blank" rel="noreferrer">
                           Verify Credential

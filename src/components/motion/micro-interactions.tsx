@@ -42,7 +42,7 @@ export function PulseGlow({ children, className }: { children: React.ReactNode; 
   return (
     <motion.div
       className={className}
-      animate={{ boxShadow: ["0 0 0 rgba(34,211,238,0)", "0 0 24px rgba(34,211,238,0.25)", "0 0 0 rgba(34,211,238,0)"] }}
+      animate={{ boxShadow: ["0 0 0 rgba(59,130,246,0)", "0 0 20px rgba(59,130,246,0.2)", "0 0 0 rgba(59,130,246,0)"] }}
       transition={{ duration: 3.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", repeatDelay: 1.5 }}
     >
       {children}

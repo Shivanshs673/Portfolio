@@ -50,11 +50,11 @@ export function GradientMesh() {
     >
       <div
         ref={light1Ref}
-        className="absolute -left-[10%] -top-[10%] h-[70vw] w-[70vw] rounded-full bg-cyan-500/25 blur-[120px] dark:bg-cyan-500/20"
+        className="absolute -left-[10%] -top-[10%] h-[70vw] w-[70vw] rounded-full bg-emerald-500/12 blur-[140px] dark:bg-emerald-500/10"
       />
       <div
         ref={light2Ref}
-        className="absolute -right-[10%] top-[10%] h-[60vw] w-[60vw] rounded-full bg-purple-500/20 blur-[100px] dark:bg-purple-500/15"
+        className="absolute -right-[10%] top-[10%] h-[60vw] w-[60vw] rounded-full bg-white/4 blur-[120px] dark:bg-white/2"
       />
     </div>
   );

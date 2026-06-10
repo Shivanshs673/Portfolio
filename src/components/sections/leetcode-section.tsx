@@ -35,10 +35,10 @@ export function LeetcodeSection({ stats }: LeetcodeSectionProps) {
         <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-[0.9fr_1.1fr] sm:mt-12 sm:gap-6">
           {/* Visual Progress Breakdown */}
           <ScrollReveal direction="left">
-            <Card className="glass relative flex h-full flex-col overflow-hidden p-5 sm:p-6 md:p-8">
+            <Card className="relative flex h-full flex-col overflow-hidden p-5 sm:p-6 md:p-8 border-card-border bg-card shadow-sm">
               <GlassShimmer />
               <h3 className="text-base font-semibold text-slate-900 dark:text-white sm:text-lg">Problem Difficulty Breakdown</h3>
-              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Total solved questions vs global question pool</p>
+              <p className="mt-1 text-xs text-muted">Total solved questions vs global question pool</p>
 
               <div className="mt-8 flex flex-col items-center gap-6 sm:flex-row sm:justify-around">
                 {/* Circular Gauge */}
@@ -56,7 +56,7 @@ export function LeetcodeSection({ stats }: LeetcodeSectionProps) {
                       cx="72"
                       cy="72"
                       r={radius}
-                      className="stroke-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
+                      className="stroke-primary-accent drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]"
                       strokeWidth="10"
                       fill="transparent"
                       strokeDasharray={circumference}
@@ -118,14 +118,14 @@ export function LeetcodeSection({ stats }: LeetcodeSectionProps) {
           {/* Ranking & Rating Stats */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
             <ScrollReveal direction="up" delay={0.05}>
-              <Card className="glass relative overflow-hidden p-5 sm:p-6">
+              <Card className="relative overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
                 <GlassShimmer />
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-400/20 bg-amber-500/10 text-amber-500 dark:text-amber-400 sm:h-12 sm:w-12">
                     <Award className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Contest Rating</p>
+                    <p className="text-xs uppercase tracking-wider text-muted">Contest Rating</p>
                     <h4 className="mt-1 text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
                       {stats.contestRating ? stats.contestRating.toLocaleString() : "1,510"}
                     </h4>
@@ -138,14 +138,14 @@ export function LeetcodeSection({ stats }: LeetcodeSectionProps) {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.1}>
-              <Card className="glass relative overflow-hidden p-5 sm:p-6">
+              <Card className="relative overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
                 <GlassShimmer />
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 sm:h-12 sm:w-12">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary-accent/20 bg-primary-accent/10 text-primary-accent sm:h-12 sm:w-12">
                     <TrendingUp className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Global Ranking</p>
+                    <p className="text-xs uppercase tracking-wider text-muted">Global Ranking</p>
                     <h4 className="mt-1 text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
                       {stats.globalRanking ? stats.globalRanking.toLocaleString() : "320,000"}
                     </h4>
@@ -158,14 +158,14 @@ export function LeetcodeSection({ stats }: LeetcodeSectionProps) {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.15} className="sm:col-span-2">
-              <Card className="glass relative overflow-hidden p-5 sm:p-6">
+              <Card className="relative overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
                 <GlassShimmer />
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-purple-400/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 sm:h-12 sm:w-12">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary-accent/20 bg-primary-accent/10 text-primary-accent sm:h-12 sm:w-12">
                     <Code2 className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Consistency Focus</p>
+                    <p className="text-xs uppercase tracking-wider text-muted">Consistency Focus</p>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                       Actively practicing data structures and algorithms in **Kotlin** and **C++** to keep my design patterns, logic, and complexity calculations sharp.
                     </p>

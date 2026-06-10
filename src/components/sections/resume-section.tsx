@@ -25,15 +25,15 @@ export function ResumeSection() {
           <div className="relative">
             <motion.div
               aria-hidden
-              className="pointer-events-none absolute inset-0 -z-10 rounded-[32px] bg-cyan-400/10 blur-3xl"
+              className="pointer-events-none absolute inset-0 -z-10 rounded-[32px] bg-[#10B981]/8 blur-3xl"
               animate={{ opacity: [0.35, 0.65, 0.35], scale: [0.95, 1.05, 0.95] }}
               transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: EASE_IN_OUT_CIRC }}
             />
-            <Card className="glass relative overflow-hidden p-6 sm:p-8 md:p-12">
+            <Card className="relative overflow-hidden p-6 sm:p-8 md:p-12 border-card-border bg-[#1C1C1C] shadow-sm">
               <GlassShimmer />
-              <p className="text-xs uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Resume</p>
-              <h2 className="mt-3 text-2xl font-semibold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">Download my resume</h2>
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
+              <p className="text-xs uppercase tracking-[0.28em] text-muted">Resume</p>
+              <h2 className="mt-3 text-2xl font-bold font-display text-[#F8F5EE] sm:text-xl md:text-3xl lg:text-4xl">Download my resume</h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#B8B8B8]">
                 Full details on my education, experience, projects, and technical skills.
               </p>
 

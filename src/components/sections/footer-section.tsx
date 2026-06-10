@@ -13,40 +13,40 @@ import { GitHubIcon, LinkedInIcon, LeetCodeIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 const footerSocialLinks = [
-  { label: "GitHub", href: contactInfo.github, icon: GitHubIcon, colorClass: "text-slate-900 dark:text-white" },
-  { label: "LinkedIn", href: contactInfo.linkedin, icon: LinkedInIcon, colorClass: "text-[#0A66C2]" },
-  { label: "LeetCode", href: contactInfo.leetcode, icon: LeetCodeIcon, colorClass: "text-[#FFA116]" },
+  { label: "GitHub", href: contactInfo.github, icon: GitHubIcon, colorClass: "text-[#F8F5EE]" },
+  { label: "LinkedIn", href: contactInfo.linkedin, icon: LinkedInIcon, colorClass: "text-[#F8F5EE]" },
+  { label: "LeetCode", href: contactInfo.leetcode, icon: LeetCodeIcon, colorClass: "text-[#F8F5EE]" },
 ];
 
 export function FooterSection({ lastUpdated }: { lastUpdated: string }) {
   return (
     <ScrollReveal direction="up">
-      <footer className="relative z-10 border-t border-slate-900/10 dark:border-white/8 bg-slate-100/90 dark:bg-slate-950/90 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <footer className="relative z-10 border-t border-card-border bg-surface/90 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="min-w-0">
-            <p className="text-xl font-semibold text-slate-900 dark:text-white sm:text-2xl">Shivansh Shukla</p>
-            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Android & Software Developer · B.Tech CSE, JUET</p>
+            <p className="text-xl font-bold font-display text-[#F8F5EE] sm:text-2xl">Shivansh Shukla</p>
+            <p className="mt-2 text-sm text-[#B8B8B8]">Android & Software Developer · B.Tech CSE, JUET</p>
             
             <div className="mt-3 flex flex-wrap gap-2 text-[10px] sm:text-xs">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-2.5 py-0.5 font-medium text-emerald-700 dark:text-emerald-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/8 px-2.5 py-0.5 font-medium text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 Open to Opportunities
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-900/8 dark:border-white/8 bg-slate-900/5 dark:bg-white/5 px-2.5 py-0.5 font-medium text-slate-600 dark:text-slate-300">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-card-border bg-card px-2.5 py-0.5 font-medium text-[#B8B8B8]/90">
                 India
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-900/8 dark:border-white/8 bg-slate-900/5 dark:bg-white/5 px-2.5 py-0.5 font-medium text-slate-500 dark:text-slate-400">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-card-border bg-card px-2.5 py-0.5 font-medium text-muted">
                 Last Updated: {lastUpdated}
               </span>
             </div>
 
-            <p className="mt-4 max-w-md text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+            <p className="mt-4 max-w-md text-xs leading-relaxed text-muted">
               Thanks for visiting my portfolio. Feel free to reach out if you&apos;d like to collaborate or discuss opportunities.
             </p>
 
             <a
               href={`mailto:${contactInfo.email}`}
-              className="mt-3 inline-block break-all text-sm font-semibold text-cyan-600 dark:text-cyan-300 hover:text-cyan-700 dark:hover:text-cyan-200 sm:break-normal"
+              className="mt-3 inline-block break-all text-sm font-semibold text-primary-accent hover:text-primary-accent-hover sm:break-normal"
             >
               {contactInfo.email}
             </a>
@@ -73,7 +73,7 @@ export function FooterSection({ lastUpdated }: { lastUpdated: string }) {
           </div>
         </div>
 
-        <div className="mx-auto mt-6 flex max-w-7xl flex-col gap-2 border-t border-slate-900/8 dark:border-white/8 pt-6 text-xs text-slate-500 sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto mt-6 flex max-w-7xl flex-col gap-2 border-t border-card-border pt-6 text-xs text-muted sm:mt-8 sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Shivansh Shukla</span>
           <span>Built with Next.js & TypeScript</span>
         </div>

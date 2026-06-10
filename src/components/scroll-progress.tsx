@@ -8,7 +8,7 @@ export function ScrollProgress({ scrollYProgress }: { scrollYProgress: MotionVal
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-50 h-1 origin-left bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500"
+      className="pointer-events-none fixed left-0 top-0 z-50 h-1 origin-left bg-primary-accent"
       style={{ scaleX }}
     />
   );

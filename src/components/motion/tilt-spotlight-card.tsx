@@ -21,7 +21,7 @@ export function TiltSpotlightCard({ children, className = "", glow = true, borde
   const mouseY = useMotionValue(0);
   const springRotateX = useSpring(rotateX, { stiffness: 180, damping: 22 });
   const springRotateY = useSpring(rotateY, { stiffness: 180, damping: 22 });
-  const spotlight = useMotionTemplate`radial-gradient(280px circle at ${mouseX}px ${mouseY}px, rgba(56,189,248,0.14), transparent 70%)`;
+  const spotlight = useMotionTemplate`radial-gradient(280px circle at ${mouseX}px ${mouseY}px, rgba(16, 185, 129, 0.08), transparent 70%)`;
 
   const onMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (reducedMotion || !ref.current) return;
@@ -54,7 +54,7 @@ export function TiltSpotlightCard({ children, className = "", glow = true, borde
       style={{ rotateX: springRotateX, rotateY: springRotateY }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.015 }}
       transition={{ type: "spring", stiffness: 260, damping: 24 }}
     >
       {borderGradient ? (
@@ -62,7 +62,7 @@ export function TiltSpotlightCard({ children, className = "", glow = true, borde
           aria-hidden
           className="pointer-events-none absolute -inset-[1px] rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
-            background: "linear-gradient(120deg, rgba(34,211,238,0.5), rgba(139,92,246,0.35), rgba(34,211,238,0.5))",
+            background: "linear-gradient(120deg, rgba(16, 185, 129, 0.3), rgba(255, 255, 255, 0.05), rgba(16, 185, 129, 0.3))",
             backgroundSize: "200% 200%",
           }}
           animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}

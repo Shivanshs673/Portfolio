@@ -19,16 +19,16 @@ export function Logo({ className, size = 40 }: LogoProps) {
     >
       <defs>
         <linearGradient id="logo-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#06b6d4" /> {/* Cyan 500 */}
-          <stop offset="100%" stopColor="#a855f7" /> {/* Purple 500 */}
+          <stop offset="0%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#34D399" />
         </linearGradient>
         <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#22d3ee" /> {/* Cyan 400 */}
-          <stop offset="100%" stopColor="#0891b2" /> {/* Cyan 600 */}
+          <stop offset="0%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#34D399" />
         </linearGradient>
         <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#c084fc" /> {/* Purple 400 */}
-          <stop offset="100%" stopColor="#7e22ce" /> {/* Purple 700 */}
+          <stop offset="0%" stopColor="#F8F5EE" />
+          <stop offset="100%" stopColor="#B8B8B8" />
         </linearGradient>
       </defs>
 

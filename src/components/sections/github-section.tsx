@@ -89,15 +89,15 @@ export function GithubSection({ profile, repos, events }: GithubSectionProps) {
           <div className="space-y-5 sm:space-y-6">
             {/* Heatmap Card */}
             <ScrollReveal direction="left">
-              <Card className="glass relative overflow-hidden p-5 sm:p-6">
+              <Card className="relative overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
                 <GlassShimmer />
                 <h3 className="text-base font-semibold text-slate-900 dark:text-white sm:text-lg">Contribution History</h3>
-                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">My activity grid over the past year</p>
-                <div className="mt-6 overflow-x-auto rounded-xl border border-slate-900/5 dark:border-white/5 bg-slate-900/5 dark:bg-slate-950/45 p-4 flex justify-center scrollbar-none">
+                <p className="mt-1 text-xs text-muted">My activity grid over the past year</p>
+                <div className="mt-6 overflow-x-auto rounded-xl border border-card-border bg-surface p-4 flex justify-center scrollbar-none">
                   {/* Real, live contribution heatmap from ghchart */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://ghchart.rshah.org/0ea5e9/shivanshs673"
+                    src="https://ghchart.rshah.org/3b82f6/shivanshs673"
                     alt="Shivansh Shukla's GitHub contributions chart"
                     className="max-w-none invert-0 dark:invert-0 opacity-90 transition-opacity hover:opacity-100 min-h-[105px]"
                   />
@@ -108,34 +108,34 @@ export function GithubSection({ profile, repos, events }: GithubSectionProps) {
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               <ScrollReveal direction="up" delay={0.06}>
-                <Card className="glass relative overflow-hidden p-4 text-center">
+                <Card className="relative overflow-hidden p-4 text-center border-card-border bg-card shadow-sm">
                   <GlassShimmer />
                   <div className="flex flex-col items-center justify-center gap-1">
-                    <GitBranch className="h-5 w-5 text-cyan-600 dark:text-cyan-300 sm:h-6 sm:w-6" />
+                    <GitBranch className="h-5 w-5 text-primary-accent sm:h-6 sm:w-6" />
                     <span className="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl">{totalRepos}</span>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400">Repositories</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted">Repositories</p>
                   </div>
                 </Card>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.12}>
-                <Card className="glass relative overflow-hidden p-4 text-center">
+                <Card className="relative overflow-hidden p-4 text-center border-card-border bg-card shadow-sm">
                   <GlassShimmer />
                   <div className="flex flex-col items-center justify-center gap-1">
-                    <Star className="h-5 w-5 text-cyan-600 dark:text-cyan-300 sm:h-6 sm:w-6" />
+                    <Star className="h-5 w-5 text-primary-accent sm:h-6 sm:w-6" />
                     <span className="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl">{totalStars}</span>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400">Total Stars</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted">Total Stars</p>
                   </div>
                 </Card>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.18}>
-                <Card className="glass relative overflow-hidden p-4 text-center">
+                <Card className="relative overflow-hidden p-4 text-center border-card-border bg-card shadow-sm">
                   <GlassShimmer />
                   <div className="flex flex-col items-center justify-center gap-1">
-                    <Users className="h-5 w-5 text-cyan-600 dark:text-cyan-300 sm:h-6 sm:w-6" />
+                    <Users className="h-5 w-5 text-primary-accent sm:h-6 sm:w-6" />
                     <span className="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl">{followersCount}</span>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400">Followers</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted">Followers</p>
                   </div>
                 </Card>
               </ScrollReveal>
@@ -144,16 +144,16 @@ export function GithubSection({ profile, repos, events }: GithubSectionProps) {
 
           {/* Recent Activity Card */}
           <ScrollReveal direction="right" delay={0.1}>
-            <Card className="glass relative flex h-full flex-col overflow-hidden p-5 sm:p-6">
+            <Card className="relative flex h-full flex-col overflow-hidden p-5 sm:p-6 border-card-border bg-card shadow-sm">
               <GlassShimmer />
               <h3 className="text-base font-semibold text-slate-900 dark:text-white sm:text-lg">Recent Activity</h3>
-              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Real-time commits, pull requests, and stars</p>
+              <p className="mt-1 text-xs text-muted">Real-time commits, pull requests, and stars</p>
 
               <div className="mt-6 flex-1 space-y-4">
                 {filteredEvents.length > 0 ? (
                   filteredEvents.map((event) => (
                     <div key={event.id} className="flex items-start gap-3 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 text-cyan-600 dark:text-cyan-400">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-card-border bg-surface text-primary-accent">
                         <GitCommit className="h-3.5 w-3.5" />
                       </div>
                       <div className="min-w-0 flex-1">
@@ -178,7 +178,7 @@ export function GithubSection({ profile, repos, events }: GithubSectionProps) {
                       href={profile?.html_url || "https://github.com/shivanshs673"}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-2 text-xs text-cyan-400 hover:underline"
+                      className="mt-2 text-xs text-primary-accent hover:underline"
                     >
                       View full profile on GitHub
                     </a>

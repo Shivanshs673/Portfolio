@@ -5,9 +5,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import { EASE_IN_OUT_CIRC } from "@/lib/motion";
 
 const blobs = [
-  { className: "left-[8%] top-[18%] h-72 w-72 bg-cyan-500/10", duration: 18 },
-  { className: "right-[6%] top-[32%] h-96 w-96 bg-violet-500/10", duration: 22 },
-  { className: "bottom-[12%] left-[30%] h-80 w-80 bg-blue-500/8", duration: 26 },
+  { className: "left-[8%] top-[18%] h-72 w-72 bg-emerald-500/5", duration: 18 },
+  { className: "right-[6%] top-[32%] h-96 w-96 bg-white/2", duration: 22 },
+  { className: "bottom-[12%] left-[30%] h-80 w-80 bg-emerald-500/3", duration: 26 },
 ];
 
 export function FloatingBlobs() {

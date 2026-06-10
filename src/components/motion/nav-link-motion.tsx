@@ -25,7 +25,7 @@ export function NavLinkMotion({ href, label, active, onClick, className }: NavLi
       </motion.span>
       <motion.span
         aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-full bg-cyan-400/0 blur-md transition-colors group-hover:bg-cyan-400/10"
+        className="pointer-events-none absolute inset-0 rounded-full bg-emerald-500/0 blur-md transition-colors group-hover:bg-emerald-500/10"
       />
       {active ? (
         <motion.span
@@ -36,7 +36,7 @@ export function NavLinkMotion({ href, label, active, onClick, className }: NavLi
       ) : null}
       <motion.span
         aria-hidden
-        className="absolute bottom-0 left-3 right-3 h-px origin-left bg-gradient-to-r from-cyan-400 to-violet-400"
+        className="absolute bottom-0 left-3 right-3 h-px origin-left bg-gradient-to-r from-[#10B981] to-[#34D399]"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: active ? 1 : 0, opacity: active ? 1 : 0 }}
         whileHover={{ scaleX: 1, opacity: 1 }}

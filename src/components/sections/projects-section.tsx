@@ -16,6 +16,8 @@ import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { getSkillIcon } from "@/components/icons";
 
+import { Magnetic } from "@/components/motion/tilt-spotlight-card";
+
 type ProjectType = typeof projects[number];
 
 function ProjectCard({ project }: { project: ProjectType }) {
@@ -23,107 +25,122 @@ function ProjectCard({ project }: { project: ProjectType }) {
 
   return (
     <TiltSpotlightCard
-      className="h-full rounded-3xl shadow-lg shadow-slate-950/20 transition-shadow duration-500 hover:shadow-2xl hover:shadow-cyan-500/10"
+      className="h-full rounded-[24px] transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#10B981]/5"
       borderGradient
       glow
     >
       <article className="h-full">
-        <Card className="glass relative flex h-full flex-col overflow-hidden p-0">
+        <Card className="relative flex h-full flex-col overflow-hidden p-0 border-card-border bg-card">
           <GlassShimmer />
-          <div className={`relative overflow-hidden bg-gradient-to-br ${project.accent} p-4 sm:p-6`}>
-            <div className="relative rounded-2xl border border-slate-900/10 dark:border-white/10 bg-white/75 dark:bg-slate-950/65 p-4 backdrop-blur-xl sm:rounded-[28px] sm:p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-800/80 dark:text-cyan-200/70 sm:text-xs sm:tracking-[0.24em]">
-                {project.period}
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-slate-900 dark:text-white sm:text-2xl">{project.name}</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">{project.subtitle}</p>
-              <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{project.summary}</p>
+          <div className="relative p-6 sm:p-8 border-b border-card-border bg-gradient-to-b from-[#161616] to-[#1C1C1C]">
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+              <Code2 className="h-20 w-20 text-[#10B981]" />
             </div>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-[#10B981] font-semibold">
+              {project.period}
+            </p>
+            <h3 className="mt-3 text-2xl font-bold font-display text-[#F8F5EE] tracking-tight group-hover:text-[#10B981] transition-colors duration-300 sm:text-3xl">
+              {project.name}
+            </h3>
+            <p className="text-sm font-medium text-[#B8B8B8] mt-1">{project.subtitle}</p>
+            <p className="mt-4 text-sm leading-relaxed text-[#B8B8B8]/80 font-sans">{project.summary}</p>
           </div>
 
-          <div className="flex flex-1 flex-col space-y-4 p-4 sm:space-y-5 sm:p-6">
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {project.tech.map((item) => (
-                <Badge key={item} className="bg-slate-900/5 dark:bg-white/8 px-2.5 py-1 text-xs text-slate-700 dark:text-slate-200 sm:px-3 sm:text-sm flex items-center gap-1.5">
-                  {getSkillIcon(item)}
-                  <span>{item}</span>
-                </Badge>
-              ))}
+          <div className="flex flex-1 flex-col justify-between p-6 sm:p-8 gap-6">
+            <div className="space-y-6">
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-muted font-bold mb-3">Technologies</p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {project.tech.map((item) => (
+                    <Badge key={item} variant="soft" className="px-3 py-1.5 text-xs font-semibold flex items-center gap-1.5 rounded-full">
+                      {getSkillIcon(item)}
+                      <span>{item}</span>
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-muted font-bold mb-3">Key Features</p>
+                <ul className="space-y-2.5 text-sm leading-relaxed text-[#B8B8B8]/80">
+                  {project.features.map((feature) => (
+                    <li key={feature} className="flex gap-2 items-start">
+                      <span className="shrink-0 text-[#10B981] mt-1">·</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Human Story Collapse section */}
+              <div className="border-t border-card-border pt-5 mt-4">
+                <button
+                  type="button"
+                  onClick={() => setExpanded(!expanded)}
+                  className="flex w-full items-center justify-between text-xs font-bold uppercase tracking-widest text-[#10B981] hover:text-[#34D399] transition-colors cursor-pointer"
+                >
+                  <span>Behind the Code (Story & Learnings)</span>
+                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", expanded && "rotate-180")} />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {expanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-4 space-y-4 pt-1 text-xs leading-relaxed text-[#B8B8B8]">
+                        {project.whyBuilt && (
+                          <div>
+                            <p className="font-bold text-[#F8F5EE] uppercase tracking-wider text-[10px]">Why I Built It</p>
+                            <p className="mt-1 text-[#B8B8B8]/80">{project.whyBuilt}</p>
+                          </div>
+                        )}
+                        {project.keyChallenge && (
+                          <div>
+                            <p className="font-bold text-[#F8F5EE] uppercase tracking-wider text-[10px]">Key Technical Challenge</p>
+                            <p className="mt-1 text-[#B8B8B8]/80">{project.keyChallenge}</p>
+                          </div>
+                        )}
+                        {project.impact && (
+                          <div>
+                            <p className="font-bold text-[#F8F5EE] uppercase tracking-wider text-[10px]">Project Impact</p>
+                            <p className="mt-1 text-[#B8B8B8]/80">{project.impact}</p>
+                          </div>
+                        )}
+                        {project.learnings && (
+                          <div>
+                            <p className="font-bold text-[#F8F5EE] uppercase tracking-wider text-[10px]">My Learnings</p>
+                            <p className="mt-1 text-[#B8B8B8]/80">{project.learnings}</p>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
-            <ul className="flex-1 space-y-1.5 text-sm leading-6 text-slate-600 dark:text-slate-300">
-              {project.features.map((feature) => (
-                <li key={feature} className="flex gap-2">
-                  <span className="shrink-0 text-cyan-600 dark:text-cyan-400">·</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Human Story Collapse section */}
-            <div className="border-t border-slate-900/5 dark:border-white/5 pt-4 mt-3">
-              <button
-                type="button"
-                onClick={() => setExpanded(!expanded)}
-                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 transition-colors cursor-pointer"
-              >
-                <span>Behind the Code (Story & Learnings)</span>
-                <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", expanded && "rotate-180")} />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {expanded && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
+            <div className="pt-4 border-t border-card-border">
+              <motion.div whileHover={{ scale: 1.015 }} transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}>
+                <Magnetic strength={0.15}>
+                  <Button
+                    asChild
+                    size="sm"
+                    variant="accent"
+                    className="w-full transition-shadow duration-500 hover:shadow-[0_0_24px_rgba(16,185,129,0.35)] sm:w-auto font-semibold px-6 py-2.5 rounded-full"
                   >
-                    <div className="mt-3 space-y-3 pt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                      {project.whyBuilt && (
-                        <div>
-                          <p className="font-semibold text-slate-800 dark:text-slate-200">Why I Built It:</p>
-                          <p className="mt-0.5 text-slate-500 dark:text-slate-400">{project.whyBuilt}</p>
-                        </div>
-                      )}
-                      {project.keyChallenge && (
-                        <div>
-                          <p className="font-semibold text-slate-800 dark:text-slate-200">Key Technical Challenge:</p>
-                          <p className="mt-0.5 text-slate-500 dark:text-slate-400">{project.keyChallenge}</p>
-                        </div>
-                      )}
-                      {project.impact && (
-                        <div>
-                          <p className="font-semibold text-slate-800 dark:text-slate-200">Project Impact:</p>
-                          <p className="mt-0.5 text-slate-500 dark:text-slate-400">{project.impact}</p>
-                        </div>
-                      )}
-                      {project.learnings && (
-                        <div>
-                          <p className="font-semibold text-slate-800 dark:text-slate-200">My Learnings:</p>
-                          <p className="mt-0.5 text-slate-500 dark:text-slate-400">{project.learnings}</p>
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <Link href={project.github} target="_blank" rel="noreferrer">
+                      <Code2 className="h-4 w-4" />
+                      View on GitHub
+                    </Link>
+                  </Button>
+                </Magnetic>
+              </motion.div>
             </div>
-
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: DURATION.fast, ease: EASE_OUT_EXPO }}>
-              <Button
-                asChild
-                size="sm"
-                variant="accent"
-                className="w-full transition-shadow duration-500 hover:shadow-[0_0_24px_rgba(34,211,238,0.35)] sm:w-auto"
-              >
-                <Link href={project.github} target="_blank" rel="noreferrer">
-                  <Code2 className="h-4 w-4" />
-                  View on GitHub
-                </Link>
-              </Button>
-            </motion.div>
           </div>
         </Card>
       </article>
@@ -133,7 +150,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="section-wrapper relative px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+    <section id="projects" className="section-wrapper relative px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Projects"
@@ -141,7 +158,7 @@ export function ProjectsSection() {
           description="Native Android applications showcasing Kotlin, Hilt, Room, and clean MVVM patterns."
         />
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:gap-6 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 sm:gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
             <ScrollReveal
               key={project.name}
