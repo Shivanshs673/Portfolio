@@ -1,22 +1,19 @@
 <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .letter-s { fill: #0f172a; }
-    @media (prefers-color-scheme: dark) {
-      .letter-s { fill: #f8fafc; }
-    }
+    .letter-s { fill: #F8F5EE; }
   </style>
   <defs>
     <linearGradient id="logo-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#06b6d4" />
-      <stop offset="100%" stop-color="#a855f7" />
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
     </linearGradient>
     <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee" />
-      <stop offset="100%" stop-color="#0891b2" />
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
     </linearGradient>
     <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c084fc" />
-      <stop offset="100%" stop-color="#7e22ce" />
+      <stop offset="0%" stop-color="#F8F5EE" />
+      <stop offset="100%" stop-color="#B8B8B8" />
     </linearGradient>
   </defs>
 
