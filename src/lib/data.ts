@@ -33,7 +33,7 @@ export const education = {
   location: "Guna, MP",
   degree: "Bachelor of Technology in Computer Science Engineering (B.Tech)",
   period: "2022 – 2026",
-  graduation: "June 2026",
+  graduation: "Graduated: June 2026",
 };
 
 export const aboutPoints = [
@@ -211,7 +211,7 @@ export const timelineEvents = [
   {
     year: "2026",
     title: "Graduation & Full-Time Opportunities",
-    description: "Graduating in June 2026. Ready to bring high energy, clean Kotlin practices, and a product-focused mindset to a forward-thinking engineering team.",
+    description: "Graduated in June 2026. Ready to bring high energy, clean Kotlin practices, and a product-focused mindset to a forward-thinking engineering team.",
   },
 ];
 
