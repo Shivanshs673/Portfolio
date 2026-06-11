@@ -79,10 +79,10 @@ export function CertificationsSection() {
                         variant="glass"
                         className="transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] border-card-border text-[#F8F5EE]"
                       >
-                        <Link href={cert.verificationUrl} target="_blank" rel="noreferrer">
-                          Verify Credential
+                        <a href={cert.downloadUrl} target="_blank" rel="noopener noreferrer">
+                          View Certificate
                           <ExternalLink className="h-3.5 w-3.5" />
-                        </Link>
+                        </a>
                       </Button>
                     </motion.div>
                   </div>
